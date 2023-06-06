@@ -12,11 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  'wbthomason/packer.nvim',
-  'ellisonleao/gruvbox.nvim',
-  'rebelot/kanagawa.nvim',
   {
-    'dracula/vim',
+    'sainnhe/everforest',
     lazy = false,
   },
   'nvim-tree/nvim-tree.lua',
