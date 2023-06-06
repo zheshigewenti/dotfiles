@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+--vim.opt.guifont=Microsoft_YaHei_Mono:h11:cANSI
+vim.opt.guifont='wqy-microhei_Mono'
+vim.opt.clipboard='unnamedplus'
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -18,3 +21,4 @@ vim.cmd [[ set noswapfile ]]
 
 --Line numbers
 vim.wo.number = true
+vim.wo.relativenumber = true
