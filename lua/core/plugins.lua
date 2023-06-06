@@ -12,10 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {
-    'sainnhe/everforest',
-    lazy = false,
-  },
+  {'sainnhe/everforest',lazy = false,},
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
@@ -27,6 +24,9 @@ local plugins = {
   'christoomey/vim-tmux-navigator',
   'tpope/vim-fugitive',
   'tpope/vim-commentary',
+
+  'lambdalisue/suda.vim',
+  {'kdheepak/lazygit.nvim',dependencies = {'nvim-lua/plenary.nvim',}},
 
   -- rust babyyyyyyy
   'mfussenegger/nvim-dap',
