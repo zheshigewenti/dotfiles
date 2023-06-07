@@ -12,25 +12,31 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {'sainnhe/everforest',lazy = false,},
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
-  'nvim-lualine/lualine.nvim',
-  'nvim-treesitter/nvim-treesitter',
-  'bluz71/vim-nightfly-colors',
+
   'vim-test/vim-test',
-  'lewis6991/gitsigns.nvim',
-  'preservim/vimux',
-  'christoomey/vim-tmux-navigator',
-  'tpope/vim-fugitive',
   'tpope/vim-commentary',
 
+  'mg979/vim-visual-multi',
   'jiangmiao/auto-pairs',
   'h-hg/fcitx.nvim',
   'lambdalisue/suda.vim',
-  {'kdheepak/lazygit.nvim',dependencies = {'nvim-lua/plenary.nvim',}},
+  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
 
-  -- rust babyyyyyyy
+  -- theme
+  {'sainnhe/everforest',lazy = false,},
+  'nvim-lualine/lualine.nvim',
+  'lewis6991/gitsigns.nvim',
+  'nvim-treesitter/nvim-treesitter',
+
+  -- tmux
+  'preservim/vimux',
+  'christoomey/vim-tmux-navigator',
+
+  -- git
+  --'tpope/vim-fugitive',
+  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
+
+  -- rust
   'mfussenegger/nvim-dap',
   'rcarriga/nvim-dap-ui',
   'simrat39/rust-tools.nvim',
@@ -46,11 +52,11 @@ local plugins = {
   "neovim/nvim-lspconfig",
   "williamboman/mason-lspconfig.nvim",
   "glepnir/lspsaga.nvim",
-  {
-	  'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
-	  dependencies = { {'nvim-lua/plenary.nvim'} }
-  }
+
+
+
+
+
 }
 
 local opts = {}
