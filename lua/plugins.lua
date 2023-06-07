@@ -21,6 +21,7 @@ local plugins = {
  'mbbill/undotree',
  'tpope/vim-surround',
  'gcmt/wildfire.vim',
+ 'gbprod/substitute.nvim',
  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
 
  -- theme

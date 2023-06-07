@@ -8,11 +8,14 @@ vim.keymap.set("n", "Q", "<cmd>q<cr>")
 vim.keymap.set("n", "W", "<cmd>w<cr>")
 
 
--- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+-- Use <space> + new arrow keys for moving the cursor around windows
+vim.keymap.set('n', '<leader>k', '<c-w>k')
+vim.keymap.set('n', '<leader>j', '<c-w>j')
+vim.keymap.set('n', '<leader>h', '<c-w>h')
+vim.keymap.set('n', '<leader>l', '<c-w>l')
+
+-- Open windows
+vim.keymap.set('n', '<a-s>', '<cmd>vsplit<CR>')
 
 --Disable the default s & ZZ key
 vim.keymap.set({"n","v"}, "s", "<nop>")
