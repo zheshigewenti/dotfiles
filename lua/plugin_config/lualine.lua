@@ -6,7 +6,7 @@ section_separators = { left = '', right = ''},
 component_separators = { left = '', right = ''},
   },
   sections = {
-    lualine_a = {'filename'},
+    lualine_a = {'mode'},
     lualine_b = {},
     lualine_c = {},
     lualine_x = {'progress'},
