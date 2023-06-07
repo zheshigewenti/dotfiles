@@ -15,7 +15,7 @@ vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 --Disable the default s & ZZ key
-vim.keymap.set("n", "s", "<nop>")
+vim.keymap.set({"n","v"}, "s", "<nop>")
 vim.keymap.set("n", "ZZ", "<nop>")
 
 --Insert Mode Cursor Movement

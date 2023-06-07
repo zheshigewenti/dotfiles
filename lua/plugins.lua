@@ -12,46 +12,51 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+ 'h-hg/fcitx.nvim',
+ 'lambdalisue/suda.vim',
+ 'vim-test/vim-test',
+ 'windwp/nvim-autopairs',
+ 'tpope/vim-commentary',
+ 'mg979/vim-visual-multi',
+ 'mbbill/undotree',
+ 'tpope/vim-surround',
+ 'gcmt/wildfire.vim',
+ {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
 
-  'vim-test/vim-test',
-  'tpope/vim-commentary',
+ -- theme
+ {'sainnhe/everforest',lazy = false,},
+ 'nvim-lualine/lualine.nvim',
+ 'lewis6991/gitsigns.nvim',
+ 'nvim-treesitter/nvim-treesitter',
 
-  'mg979/vim-visual-multi',
-  'jiangmiao/auto-pairs',
-  'h-hg/fcitx.nvim',
-  'lambdalisue/suda.vim',
-  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
+ -- tmux
+ 'preservim/vimux',
+ 'christoomey/vim-tmux-navigator',
 
-  -- theme
-  {'sainnhe/everforest',lazy = false,},
-  'nvim-lualine/lualine.nvim',
-  'lewis6991/gitsigns.nvim',
-  'nvim-treesitter/nvim-treesitter',
+ -- git
+ --'tpope/vim-fugitive',
+ {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
 
-  -- tmux
-  'preservim/vimux',
-  'christoomey/vim-tmux-navigator',
+ -- rust
+ 'mfussenegger/nvim-dap',
+ 'rcarriga/nvim-dap-ui',
+ 'simrat39/rust-tools.nvim',
 
-  -- git
-  --'tpope/vim-fugitive',
-  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
+ -- completion
+ "github/copilot.vim",
 
-  -- rust
-  'mfussenegger/nvim-dap',
-  'rcarriga/nvim-dap-ui',
-  'simrat39/rust-tools.nvim',
 
-  -- completion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
-  "rafamadriz/friendly-snippets",
-  "github/copilot.vim",
-  "williamboman/mason.nvim",
-  "neovim/nvim-lspconfig",
-  "williamboman/mason-lspconfig.nvim",
-  "glepnir/lspsaga.nvim",
+ 'hrsh7th/nvim-cmp',
+ 'hrsh7th/cmp-nvim-lsp',
+ 'saadparwaiz1/cmp_luasnip',
+ "rafamadriz/friendly-snippets",
+ 'L3MON4D3/LuaSnip',
+
+ "williamboman/mason.nvim",
+ "williamboman/mason-lspconfig.nvim",
+ "neovim/nvim-lspconfig",
+ "glepnir/lspsaga.nvim",
+
 
 
 
