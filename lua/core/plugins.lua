@@ -25,6 +25,8 @@ local plugins = {
   'tpope/vim-fugitive',
   'tpope/vim-commentary',
 
+  'jiangmiao/auto-pairs',
+  'h-hg/fcitx.nvim',
   'lambdalisue/suda.vim',
   {'kdheepak/lazygit.nvim',dependencies = {'nvim-lua/plenary.nvim',}},
 
