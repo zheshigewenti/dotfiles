@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<space>ts", "viw:Translate ZH<cr>")
+vim.keymap.set("n", "<leader>ts", "viw:Translate ZH<cr>")
