@@ -1,36 +1,35 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- vim.g.maplocalleader = ' '
 vim.g.VM_show_warnings = 0
 
 
+vim.opt.statusline = "%F%=%l:%v       %P"
 vim.opt.clipboard='unnamedplus'
 vim.opt.backspace = '2'
-vim.opt.showcmd = true
-vim.opt.laststatus = 2
+-- vim.opt.virtualedit ='block'
+-- vim.opt.laststatus = 1
+vim.opt.scrolloff = 4
+vim.opt.textwidth = 0
+vim.opt.ttimeoutlen = 0
 vim.opt.autowrite = true
-vim.opt.cursorline = false
 vim.opt.autoread = true
+vim.opt.showcmd = true
 vim.opt.wildmenu = true
 vim.opt.autochdir = true
-vim.opt.scrolloff = 4
 vim.opt.hlsearch = true
 vim.opt.showmode = true
-vim.opt.timeout = false
-vim.opt.autoindent = false
 vim.opt.ttyfast = true
-vim.opt.textwidth = 0
-vim.opt.ttimeout = true
-vim.opt.ttimeoutlen = 0
 vim.opt.lazyredraw = true
 vim.opt.visualbell = true
--- vim.opt.virtualedit ='block'
+vim.opt.cursorline = false
+vim.opt.autoindent = false
 
 --fonts
---vim.opt.guifont=Microsoft_YaHei_Mono:h11:cANSI
 vim.opt.guifont='wqy-microhei_Mono'
+--vim.opt.guifont=Microsoft_YaHei_Mono:h11:cANSI
 
 
--- windows position
+-- windows cursor position
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
