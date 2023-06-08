@@ -18,7 +18,6 @@ local plugins = {
  'windwp/nvim-autopairs',
  'tpope/vim-commentary',
  'mg979/vim-visual-multi',
- -- 'mbbill/undotree',
  'tpope/vim-surround',
  'gcmt/wildfire.vim',
  'gbprod/substitute.nvim',
@@ -27,7 +26,6 @@ local plugins = {
 
  -- theme
  {'sainnhe/everforest',lazy = false,},
- -- 'nvim-lualine/lualine.nvim',
  'lewis6991/gitsigns.nvim',
  'nvim-treesitter/nvim-treesitter',
 

@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.VM_show_warnings = 0
 
 
-vim.opt.statusline = "%F%=%l:%v       %P"
+vim.opt.statusline = "%F%=%l:%c       %P"
 vim.opt.clipboard='unnamedplus'
 vim.opt.backspace = '2'
 -- vim.opt.virtualedit ='block'
