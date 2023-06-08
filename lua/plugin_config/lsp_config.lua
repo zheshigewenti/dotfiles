@@ -6,9 +6,9 @@ require('lspsaga').setup({
   code_action_icon = "💡",
   symbol_in_winbar = {
     in_custom = false,
-    enable = true,
+    enable = false,
     separator = ' ',
-    show_file = true,
+    show_file = false,
     file_formatter = ""
   },
 })
