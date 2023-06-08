@@ -18,15 +18,16 @@ local plugins = {
  'windwp/nvim-autopairs',
  'tpope/vim-commentary',
  'mg979/vim-visual-multi',
- 'mbbill/undotree',
+ -- 'mbbill/undotree',
  'tpope/vim-surround',
  'gcmt/wildfire.vim',
  'gbprod/substitute.nvim',
+ 'uga-rosa/translate.nvim',
  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
 
  -- theme
  {'sainnhe/everforest',lazy = false,},
- 'nvim-lualine/lualine.nvim',
+ -- 'nvim-lualine/lualine.nvim',
  'lewis6991/gitsigns.nvim',
  'nvim-treesitter/nvim-treesitter',
 
