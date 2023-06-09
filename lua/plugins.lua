@@ -31,19 +31,18 @@ local plugins = {
 
  -- tmux
  'preservim/vimux',
- 'christoomey/vim-tmux-navigator',
 
  -- git
  --'tpope/vim-fugitive',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
 
- -- rust
+  --rust
  'mfussenegger/nvim-dap',
  'rcarriga/nvim-dap-ui',
  'simrat39/rust-tools.nvim',
 
- -- completion
- "github/copilot.vim",
+  --completion
+ --"github/copilot.vim",
 
 
  'hrsh7th/nvim-cmp',
