@@ -48,6 +48,7 @@ vim.wo.relativenumber = true
 --trailing space
 vim.opt.list = true
 vim.opt.listchars='trail:▫'
+vim.opt.listchars='tab: |'
 
 
 --search case
