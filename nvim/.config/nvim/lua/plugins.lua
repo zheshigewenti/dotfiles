@@ -34,7 +34,6 @@ local plugins = {
  'preservim/vimux',
 
  -- git
- --'tpope/vim-fugitive',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
 
   --rust
