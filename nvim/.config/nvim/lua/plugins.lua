@@ -26,6 +26,7 @@ local plugins = {
 
  -- theme
  {'sainnhe/everforest',lazy = false,},
+ -- {'kdheepak/monochrome.nvim',lazy = false,},
  'lewis6991/gitsigns.nvim',
  'nvim-treesitter/nvim-treesitter',
 
@@ -54,7 +55,7 @@ local plugins = {
  "williamboman/mason.nvim",
  "williamboman/mason-lspconfig.nvim",
  "neovim/nvim-lspconfig",
- "glepnir/lspsaga.nvim",
+ -- "glepnir/lspsaga.nvim",
 
 
 
