@@ -15,7 +15,7 @@ vim.keymap.set('n', '<a-h>', '<c-w>h')
 vim.keymap.set('n', '<a-l>', '<c-w>l')
 
 -- Open windows
-vim.keymap.set('n', '<a-s>', ':vsplit<CR>')
+vim.keymap.set('n', '<a-s>', ':set splitbelow<CR>:split<CR>')
 
 --Disable the default s & ZZ key
 vim.keymap.set({'n','v'}, 's', '<nop>')
