@@ -60,5 +60,5 @@ export LANGUAGE=zh_CN:en_US
 export LC_CTYPE=en_US.UTF-8
 
 xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
-source ~./zsh/z/z.sh
+source ~/.zsh/z/z.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
