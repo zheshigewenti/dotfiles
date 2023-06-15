@@ -1,11 +1,11 @@
 --base
-vim.keymap.set({ "n", "v", "o" },"H", "^")
-vim.keymap.set({ "n", "v", "o" },"L", "$")
-vim.keymap.set({ "n", "v", "o" },"J", "5j")
-vim.keymap.set({ "n", "v", "o" },"K", "5k")
+vim.keymap.set({ 'n', 'v', 'o' },'H', '^')
+vim.keymap.set({ 'n', 'v', 'o' },'L', '$')
+vim.keymap.set({ 'n', 'v', 'o' },'J', '5j')
+vim.keymap.set({ 'n', 'v', 'o' },'K', '5k')
 
-vim.keymap.set("n", "Q", ":q<cr>")
-vim.keymap.set("n", "W", ":w<cr>")
+vim.keymap.set('n', 'Q', ':q<cr>')
+vim.keymap.set('n', 'W', ':w<cr>')
 
 
 -- Use <space> + new arrow keys for moving the cursor around windows
