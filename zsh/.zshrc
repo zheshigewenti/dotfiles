@@ -14,15 +14,11 @@ HISTFILE=~/.zsh_history
 
 # git branch prompt
 function git_branch()
-{
-    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-    if [[ $branch == "" ]]
-    then
-        :
-    else
-			echo "($branch) "
-    fi
-}
+{branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null) 
+if [[ $branch == "" ]]
+then : else echo "($branch) " 
+fi}
+
 git_prompt='$(git_branch)'
 PS1='%n%# '%F{#A7C080}$git_prompt%f
 
