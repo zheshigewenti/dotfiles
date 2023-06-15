@@ -9,18 +9,18 @@ vim.keymap.set("n", "W", ":w<cr>")
 
 
 -- Use <space> + new arrow keys for moving the cursor around windows
-vim.keymap.set('n', '<leader>k', '<c-w>k')
-vim.keymap.set('n', '<leader>j', '<c-w>j')
-vim.keymap.set('n', '<leader>h', '<c-w>h')
-vim.keymap.set('n', '<leader>l', '<c-w>l')
+vim.keymap.set('n', '<a-k>', '<c-w>k')
+vim.keymap.set('n', '<a-j>', '<c-w>j')
+vim.keymap.set('n', '<a-h>', '<c-w>h')
+vim.keymap.set('n', '<a-l>', '<c-w>l')
 
 -- Open windows
 vim.keymap.set('n', '<a-s>', ':vsplit<CR>')
 
 --Disable the default s & ZZ key
-vim.keymap.set({"n","v"}, "s", "<nop>")
-vim.keymap.set({"n","v"}, "S", "<nop>")
-vim.keymap.set("n", "ZZ", "<nop>")
+vim.keymap.set({'n','v'}, 's', '<nop>')
+vim.keymap.set({'n','v'}, 'S', '<nop>')
+vim.keymap.set('n', 'ZZ', '<nop>')
 
 --Insert Mode Cursor Movement
 vim.keymap.set('i', '<c-a>', '<esc>A')
