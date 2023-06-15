@@ -20,7 +20,7 @@ autocmd('TextYankPost', {
   end
 })
 
--- go to last loc when opening a buffer
+-- Go to last loc when opening a buffer
 augroup('last_loc', { clear = true })
 autocmd('BufReadPost', {
   group = 'last_loc',
