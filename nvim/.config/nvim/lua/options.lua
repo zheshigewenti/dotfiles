@@ -19,7 +19,7 @@ vim.opt.autochdir = true
 vim.opt.hlsearch = true
 vim.opt.showmode = true
 vim.opt.ttyfast = true
-vim.opt.lazyredraw = true
+-- vim.opt.lazyredraw = true
 vim.opt.visualbell = true
 vim.opt.cursorline = false
 vim.opt.autoindent = false
@@ -48,7 +48,7 @@ vim.wo.relativenumber = true
 --trailing space
 vim.opt.list = true
 vim.opt.listchars='trail:▫'
-vim.opt.listchars='tab: |'
+vim.opt.listchars='tab:|\\'
 
 
 --search case
