@@ -24,6 +24,9 @@ local plugins = {
  'uga-rosa/translate.nvim',
  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
 
+ -- markdown
+ 'dhruvasagar/vim-table-mode',
+
  -- theme
  {'sainnhe/everforest',lazy = false,},
  -- {'kdheepak/monochrome.nvim',lazy = false,},
@@ -55,8 +58,6 @@ local plugins = {
  "williamboman/mason-lspconfig.nvim",
  "neovim/nvim-lspconfig",
  -- "glepnir/lspsaga.nvim",
-
-
 
 
 
