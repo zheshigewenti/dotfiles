@@ -33,6 +33,16 @@ autocmd('BufReadPost', {
   end
 })
 
+-- Undo history
+vim.cmd([[
+silent !mkdir -p $HOME/.config/nvim/undo
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.config/nvim/undo
+endif
+]])
+
+
 -- Don't auto commenting new lines
 autocmd('BufEnter', {
   pattern = '',
