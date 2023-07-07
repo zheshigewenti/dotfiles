@@ -26,6 +26,7 @@ local plugins = {
 
  -- markdown
  'dhruvasagar/vim-table-mode',
+ 'mzlogin/vim-markdown-toc',
 
  -- theme
  {'sainnhe/everforest',lazy = false,},
@@ -58,8 +59,6 @@ local plugins = {
  "williamboman/mason-lspconfig.nvim",
  "neovim/nvim-lspconfig",
  -- "glepnir/lspsaga.nvim",
-
-
 
 
 }
