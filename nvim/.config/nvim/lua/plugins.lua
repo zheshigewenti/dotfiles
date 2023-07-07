@@ -22,22 +22,22 @@ local plugins = {
  'gcmt/wildfire.vim',
  'gbprod/substitute.nvim',
  'uga-rosa/translate.nvim',
+ 'nvim-treesitter/nvim-treesitter',
  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
+
+ -- colorscheme
+ {'sainnhe/everforest',lazy = false,},
+ -- {'kdheepak/monochrome.nvim',lazy = false,},
 
  -- markdown
  'dhruvasagar/vim-table-mode',
  'mzlogin/vim-markdown-toc',
 
- -- theme
- {'sainnhe/everforest',lazy = false,},
- -- {'kdheepak/monochrome.nvim',lazy = false,},
- 'lewis6991/gitsigns.nvim',
- 'nvim-treesitter/nvim-treesitter',
-
  -- tmux
  'preservim/vimux',
 
  -- git
+ 'lewis6991/gitsigns.nvim',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
 
   --rust
@@ -48,16 +48,17 @@ local plugins = {
   --completion
  --"github/copilot.vim",
 
+ "neovim/nvim-lspconfig",
 
- 'hrsh7th/nvim-cmp',
- 'hrsh7th/cmp-nvim-lsp',
+ 'L3MON4D3/LuaSnip',                                       --代码片段引擎
  'saadparwaiz1/cmp_luasnip',
  "rafamadriz/friendly-snippets",
- 'L3MON4D3/LuaSnip',
 
- "williamboman/mason.nvim",
+ 'hrsh7th/nvim-cmp',                                       --代码补全引擎
+ 'hrsh7th/cmp-nvim-lsp',
+
+ "williamboman/mason.nvim",                                --语言服务器管理
  "williamboman/mason-lspconfig.nvim",
- "neovim/nvim-lspconfig",
  -- "glepnir/lspsaga.nvim",
 
 
