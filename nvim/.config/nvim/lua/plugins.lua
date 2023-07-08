@@ -51,12 +51,13 @@ local plugins = {
  "neovim/nvim-lspconfig",
 
  'hrsh7th/nvim-cmp',                                       --代码补全引擎
+ 'L3MON4D3/LuaSnip',                                       --代码片段引擎
+
  'hrsh7th/cmp-nvim-lsp',
  'hrsh7th/cmp-path',
-
- 'L3MON4D3/LuaSnip',                                       --代码片段引擎
  'saadparwaiz1/cmp_luasnip',
  "rafamadriz/friendly-snippets",
+
 
 
  "williamboman/mason.nvim",                                --语言服务器管理
