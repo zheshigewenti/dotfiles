@@ -10,8 +10,8 @@ cmp.setup{
 
   mapping = cmp.mapping.preset.insert{
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<C-j>'] = cmp.mapping.select_next_item(),
-      ['<C-k>'] = cmp.mapping.select_prev_item(),
+      -- ['<C-j>'] = cmp.mapping.select_next_item(),
+      -- ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<CR>'] = cmp.mapping.confirm{ select = true },
     },
 
