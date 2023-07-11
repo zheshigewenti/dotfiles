@@ -5,7 +5,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 -- require('lspsaga').setup({
 --   code_action_icon = "💡",
 --   symbol_in_winbar = {
---     in_custom = false,
+--     in_custom = true,
 --     enable = false,
 --     separator = ' ',
 --     show_file = false,
@@ -38,5 +38,13 @@ require("lspconfig").lua_ls.setup {
 
 
 require("lspconfig").clangd.setup {
+  capabilities = capabilities,
+}
+
+require("lspconfig").rust_analyzer.setup {
+  capabilities = capabilities,
+}
+
+require("lspconfig").tsserver.setup {
   capabilities = capabilities,
 }
