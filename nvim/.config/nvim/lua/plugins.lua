@@ -49,6 +49,9 @@ local plugins = {
  --"github/copilot.vim",
 
  "neovim/nvim-lspconfig",
+ "williamboman/mason.nvim",                                --语言服务器管理
+ "williamboman/mason-lspconfig.nvim",
+ -- "glepnir/lspsaga.nvim",
 
  'hrsh7th/nvim-cmp',                                       --代码补全引擎
  'L3MON4D3/LuaSnip',                                       --代码片段引擎
@@ -60,9 +63,6 @@ local plugins = {
 
 
 
- "williamboman/mason.nvim",                                --语言服务器管理
- "williamboman/mason-lspconfig.nvim",
- -- "glepnir/lspsaga.nvim",
 
 
 }

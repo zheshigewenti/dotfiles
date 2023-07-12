@@ -6,7 +6,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 --   code_action_icon = "💡",
 --   symbol_in_winbar = {
 --     in_custom = true,
---     enable = false,
+--     enable = true,
 --     separator = ' ',
 --     show_file = false,
 --     file_formatter = ""
@@ -45,6 +45,3 @@ require("lspconfig").rust_analyzer.setup {
   capabilities = capabilities,
 }
 
-require("lspconfig").tsserver.setup {
-  capabilities = capabilities,
-}
