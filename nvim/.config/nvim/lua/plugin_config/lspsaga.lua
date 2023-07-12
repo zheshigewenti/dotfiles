@@ -1,5 +1,3 @@
-
-
 ---- require('lspsaga').setup({
 ----   code_action_icon = "💡",
 ----   symbol_in_winbar = {
