@@ -3,7 +3,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snip/" } })
 
 
-
 --cmp
 local cmp = require("cmp")
 cmp.setup{
@@ -28,8 +27,8 @@ cmp.setup{
     },
 
   sources = cmp.config.sources{
-      { name = 'nvim_lsp'},
       { name = 'luasnip' },
+      { name = 'nvim_lsp'},
       { name = 'buffer' },
     },
 
