@@ -1,6 +1,9 @@
--- load snippets from path/of/your/nvim/config/my-cool-snippets
+--luasnip
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "$HOME/.config/nvim/snip/" } })
 
+
+
+--cmp
 local cmp = require("cmp")
 cmp.setup{
   snippet = {
@@ -31,6 +34,7 @@ cmp.setup{
 
 }
 
+--lsp
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("lspconfig").lua_ls.setup {
@@ -49,7 +53,6 @@ require("lspconfig").lua_ls.setup {
     },
   }
 }
-
 
 require("lspconfig").clangd.setup {
   capabilities = capabilities,
