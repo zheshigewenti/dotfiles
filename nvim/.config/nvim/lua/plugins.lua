@@ -49,10 +49,10 @@ local plugins = {
  --"github/copilot.vim",
 
  "williamboman/mason.nvim",                                --语言服务器管理
- "williamboman/mason-lspconfig.nvim",
+ "williamboman/mason-lspconfig.nvim",                      --mason对接lsp友好
  'hrsh7th/nvim-cmp',                                       --代码补全引擎
  'L3MON4D3/LuaSnip',                                       --代码片段引擎
- "neovim/nvim-lspconfig",
+ "neovim/nvim-lspconfig",                                  --lsp服务器设置
  -- "glepnir/lspsaga.nvim",
 
 
