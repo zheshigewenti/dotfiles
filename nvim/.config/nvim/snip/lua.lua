@@ -197,7 +197,10 @@ local {} = {}
 ) --}}}
 
 -- Tutorial Snippets go here --
-
+local myfirstsnip = s("myfirstsnip",{
+  t("Hi,what ?")
+})
+table.insert(snippets,myfirstsnip)
 -- End Refactoring --
 
 return snippets, autosnippets
