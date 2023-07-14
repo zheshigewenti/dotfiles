@@ -1,5 +1,5 @@
 --luasnip
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "$HOME/.config/nvim/snip/" } })
+require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snip/" } })
 
 
 
