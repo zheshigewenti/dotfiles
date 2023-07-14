@@ -15,15 +15,15 @@ cmp.setup{
   mapping = cmp.mapping.preset.insert{
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm{ select = false },
-      ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif require("luasnip").expand_or_jumpable() then
-       require("luasnip").expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+      -- ['<Tab>'] = cmp.mapping(function(fallback)
+      -- if cmp.visible() then
+      --   cmp.select_next_item()
+      -- elseif require("luasnip").expand_or_jumpable() then
+      --  require("luasnip").expand_or_jump()
+      -- else
+      --   fallback()
+      -- end
+    -- end, { 'i', 's' }),
     },
 
   sources = cmp.config.sources{
