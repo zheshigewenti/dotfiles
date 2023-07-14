@@ -1,4 +1,5 @@
 --luasnip
+require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snip/" } })
 
 
@@ -14,7 +15,7 @@ cmp.setup{
 
   mapping = cmp.mapping.preset.insert{
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm{ select = true },
+      ['<CR>'] = cmp.mapping.confirm{ select = false },
       ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
