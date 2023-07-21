@@ -1,15 +1,6 @@
 bindkey -e
 xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 
-# TMUX
-# if [[ -z "$TMUX" ]] ;then
-#     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-#     if [[ -z "$ID" ]] ;then # if not available create a new one
-
-#     else
-#         tmux attach-session -t "$ID" # if available attach to it
-#     fi
-# fi
 #zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -22,19 +13,13 @@ SAVEHIST=20  # Save most-recent 20 lines
 HISTFILE=~/.zsh_history
 
 # git branch prompt
-function git_branch()
-{branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null) 
-if [[ $branch == "" ]]
-then : else echo "($branch) " 
-fi}
 
-git_prompt='$(git_branch)'
-PS1='%n%# '%F{#A7C080}$git_prompt%f
-
-setopt prompt_subst
-setopt histreduceblanks
-setopt histignorealldups
-setopt no_nomatch
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+ 
+setopt PROMPT_SUBST
+export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{normal}%#%f '
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
