@@ -17,7 +17,7 @@ vim.opt.showcmd = true
 vim.opt.wildmenu = true
 vim.opt.autochdir = true
 vim.opt.hlsearch = true
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.ttyfast = true
 -- vim.opt.lazyredraw = true
 vim.opt.visualbell = true
@@ -53,3 +53,4 @@ vim.opt.listchars='trail:▫,tab:| '
 --search case
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
