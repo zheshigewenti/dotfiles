@@ -22,15 +22,14 @@ setopt PROMPT_SUBST
 export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{normal}%#%f '
 
 # alias
-# alias ls='ls --color=auto'
 # alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 alias vim='nvim'
 alias n='neofetch'
 alias reboot='sudo reboot'
 alias j='joshuto'
 alias t='thunar'
-
-# export LS_COLORS=$LS_COLORS:"*.tar=0;31":"*.xz=0;31":"*.gz=0;31":"*.jpg=0;33":"*.png=0;33"
+export LS_COLORS="$LS_COLORS:di=0;35:*.tar=0;31:*.gz=0;31:*.xz=0;31:*.jpg=0;33:*.png=0;33:*.jpeg=0;33"
 export EDITOR=nvim
 
 # proxy
