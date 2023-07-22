@@ -9,7 +9,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # history
-SAVEHIST=20  # Save most-recent 20 lines
+SAVEHIST=200  # Save most-recent 20 lines
 HISTFILE=~/.zsh_history
 
 # git branch prompt
@@ -21,15 +21,17 @@ function parse_git_branch() {
 setopt PROMPT_SUBST
 export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{normal}%#%f '
 
+
+
 # alias
 # alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls --color'
 alias vim='nvim'
 alias n='neofetch'
 alias reboot='sudo reboot'
 alias j='joshuto'
 alias t='thunar'
-export LS_COLORS="$LS_COLORS:di=0;35:*.tar=0;31:*.gz=0;31:*.xz=0;31:*.jpg=0;33:*.png=0;33:*.jpeg=0;33"
+export LS_COLORS="$LS_COLORS::ln=36:di=35:ex=32:*.tar=0;31:*.gz=0;31:*.xz=0;31:*.jpg=0;33:*.png=0;33:*.jpeg=0;33"
 export EDITOR=nvim
 
 # proxy
