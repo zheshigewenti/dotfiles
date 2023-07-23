@@ -83,10 +83,10 @@ keymap = [
 	{ keys = [ "a" ],		command = "rename_append" },
 	{ keys = [ "A" ],		command = "rename_prepend" },
 
-	{ keys = [ "f", "t" ],		command = ":touch " },
+	{ keys = [ "t" ],		command = ":touch " },
 
 	{ keys = [ " " ],		command = "select --toggle=true" },
-	{ keys = [ "t" ],		command = "select --all=true --toggle=true" },
+	# { keys = [ "t" ],		command = "select --all=true --toggle=true" },
 	{ keys = [ "V" ],		command = "toggle_visual"},
 
 	{ keys = [ "w" ],		command = "show_tasks --exit-key=w" },
