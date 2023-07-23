@@ -96,7 +96,7 @@ keymap = [
 	{ keys = [ ":" ],		command = ":" },
 	{ keys = [ ";" ],		command = ":" },
 
-	{ keys = [ "m", "k" ],		command = ":mkdir " },
+	{ keys = [ "m" ],		command = ":mkdir " },
 	{ keys = [ "c", "w" ],		command = ":rename " },
 
 	{ keys = [ "/" ],		command = ":search " },
@@ -115,9 +115,9 @@ keymap = [
 	{ keys = [ "s", "s" ],		command = "sort size" },
 	{ keys = [ "s", "e" ],		command = "sort ext" },
 
-	{ keys = [ "m", "s" ],		command = "linemode size" },
-	{ keys = [ "m", "m" ],		command = "linemode mtime" },
-	{ keys = [ "m", "M" ],		command = "linemode sizemtime" },
+	# { keys = [ "m", "s" ],		command = "linemode size" },
+	# { keys = [ "m", "m" ],		command = "linemode mtime" },
+	# { keys = [ "m", "M" ],		command = "linemode sizemtime" },
 
 
 	{ keys = [ "g", "n" ],		command = "cd ~/.config/nvim/lua" },
