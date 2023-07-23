@@ -53,6 +53,7 @@ keymap = [
 	{ keys = [ "k" ],		command = "cursor_move_up" },
 	{ keys = [ "h" ],		command = "cd .." },
 	{ keys = [ "l" ],		command = "open" },
+	{ keys = [ "g", "g" ],		command = "cursor_move_home" },
 	{ keys = [ "G" ],		command = "cursor_move_end" },
 	{ keys = [ "r" ],		command = "open_with" },
 
