@@ -7,7 +7,7 @@
   "fcitx.vim": { "branch": "fcitx5", "commit": "92247352c6f05c8deebea2f50d8e842bfd91c294" },
   "friendly-snippets": { "branch": "main", "commit": "7f6681b7d1eebba024f0caf6576fc1e94578b9cc" },
   "gitsigns.nvim": { "branch": "main", "commit": "dc2962f7fce953a2a98e7c6d3d7fc4c1d1f66758" },
-  "lazy.nvim": { "branch": "main", "commit": "5af331ea65418dc9361769891921fdee4bcc837a" },
+  "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
   "lazygit.nvim": { "branch": "main", "commit": "3466e48439601445e26c65635421625886f2d0c0" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "82685fdd0f67a694b244cb058b83761f54664d68" },
   "mason.nvim": { "branch": "main", "commit": "5ad3e113b0c3fde3caba8630599373046f6197e8" },
@@ -28,7 +28,6 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-table-mode": { "branch": "master", "commit": "9555a3e6e5bcf285ec181b7fc983eea90500feb4" },
   "vim-test": { "branch": "master", "commit": "6fbfbfc434debf3d3e8676fad5041450615f2d5d" },
-  "vim-typora": { "branch": "master", "commit": "6d87ab5843f87797c786a495f37aa297d1069623" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
   "vimux": { "branch": "master", "commit": "616fcb4799674a7a809b14ca2dc155bb6ba25788" },
   "wildfire.vim": { "branch": "master", "commit": "b371e2b1d938ae0e164146136051de164ecb9aa5" }
