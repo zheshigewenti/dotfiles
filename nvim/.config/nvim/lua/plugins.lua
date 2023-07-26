@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
- 'lilydjwg/fcitx.vim',
+ 'h-hg/fcitx.nvim',
  'lambdalisue/suda.vim',
  'vim-test/vim-test',
  'windwp/nvim-autopairs',
