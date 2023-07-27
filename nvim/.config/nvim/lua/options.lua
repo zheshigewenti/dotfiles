@@ -2,8 +2,10 @@ vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
 vim.g.VM_show_warnings = 0
 
+-- minimal statusline on start
+vim.opt.laststatus =0
+-- vim.opt.statusline = "%F%=%l:%c       %P"
 
-vim.opt.statusline = "%F%=%l:%c       %P"
 vim.opt.clipboard='unnamedplus'
 vim.opt.backspace = '2'
 -- vim.opt.virtualedit ='block'
