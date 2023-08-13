@@ -2,7 +2,8 @@ bindkey -e
 xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 
 # zsh-autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
+
 
 # Case-insensitive matching
 autoload -Uz compinit && compinit
