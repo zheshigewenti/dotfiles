@@ -1,5 +1,4 @@
 bindkey -e
-xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
@@ -57,3 +56,5 @@ export LC_CTYPE=en_US.UTF-8
 
 source ~/.zsh/z/z.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
