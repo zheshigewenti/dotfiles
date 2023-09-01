@@ -2,7 +2,6 @@ vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
 vim.g.VM_show_warnings = 0
 
--- minimal statusline on start
 vim.opt.laststatus =0
 -- vim.opt.statusline = "%F%=%l:%c       %P"
 
