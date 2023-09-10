@@ -12,6 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+{'projekt0n/github-nvim-theme',lazy = false,priority = 1000,
+  config = function()
+  require('github-theme').setup{}
+  vim.cmd('colorscheme github_dark')
+  end},
  'h-hg/fcitx.nvim',
  'lambdalisue/suda.vim',
  'vim-test/vim-test',
@@ -24,35 +29,14 @@ local plugins = {
  'uga-rosa/translate.nvim',
  'nvim-treesitter/nvim-treesitter',
  {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
-
- -- colorscheme
- -- {'sainnhe/everforest',lazy = false,},
-
-{
-  'projekt0n/github-nvim-theme',
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
-  config = function()
-    require('github-theme').setup({
-    })
-
-    vim.cmd('colorscheme github_dark')
-  end,
-},
-
- -- {'kdheepak/monochrome.nvim',lazy = false,},
-
  -- markdown
  'dhruvasagar/vim-table-mode',
  'mzlogin/vim-markdown-toc',
-
  -- tmux
  'preservim/vimux',
-
  -- git
  'lewis6991/gitsigns.nvim',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
-
   --rust
  'mfussenegger/nvim-dap',
  'rcarriga/nvim-dap-ui',
@@ -73,11 +57,6 @@ local plugins = {
  'hrsh7th/cmp-path',
  'saadparwaiz1/cmp_luasnip',
  "rafamadriz/friendly-snippets",
-
-
-
-
-
 }
 
 local opts = {}
