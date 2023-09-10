@@ -54,9 +54,9 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
-require("lspconfig").clangd.setup {
-  capabilities = capabilities,
-}
+-- require("lspconfig").clangd.setup {
+--   capabilities = capabilities,
+-- }
 
 require("lspconfig").rust_analyzer.setup {
   capabilities = capabilities,
