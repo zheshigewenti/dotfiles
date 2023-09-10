@@ -12,11 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-{'projekt0n/github-nvim-theme',lazy = false,priority = 1000,
-  config = function()
-  require('github-theme').setup{}
-  vim.cmd('colorscheme github_dark')
-  end},
+ 'projekt0n/github-nvim-theme',
  'h-hg/fcitx.nvim',
  'lambdalisue/suda.vim',
  'vim-test/vim-test',
@@ -28,7 +24,7 @@ local plugins = {
  'gbprod/substitute.nvim',
  'uga-rosa/translate.nvim',
  'nvim-treesitter/nvim-treesitter',
- {'nvim-telescope/telescope.nvim',tag = '0.1.0',dependencies = 'nvim-lua/plenary.nvim' },
+ {'nvim-telescope/telescope.nvim',tag = '0.1.2',dependencies = 'nvim-lua/plenary.nvim' },
  -- markdown
  'dhruvasagar/vim-table-mode',
  'mzlogin/vim-markdown-toc',

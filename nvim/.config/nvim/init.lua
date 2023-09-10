@@ -11,6 +11,8 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")
 
+
+require("plugins.theme")
 require("plugins.mason")
 require("plugins.treesitter")
 require("plugins.telescope")
