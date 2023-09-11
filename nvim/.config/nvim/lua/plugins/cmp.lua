@@ -3,38 +3,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snip/" } })
 
 
---cmp
-local cmp = require("cmp")
-cmp.setup{
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-    },
-
-  mapping = cmp.mapping.preset.insert{
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm{ select = false },
-      -- ['<Tab>'] = cmp.mapping(function(fallback)
-      -- if cmp.visible() then
-      --   cmp.select_next_item()
-      -- elseif require("luasnip").expand_or_jumpable() then
-      --  require("luasnip").expand_or_jump()
-      -- else
-      --   fallback()
-      -- end
-    -- end, { 'i', 's' }),
-    },
-
-  sources = cmp.config.sources{
-      { name = 'luasnip' },
-      { name = 'nvim_lsp'},
-      { name = 'buffer' },
-    },
-
-}
-
---lsp
+--lspconfig
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("lspconfig").lua_ls.setup {
@@ -61,4 +30,37 @@ require("lspconfig").lua_ls.setup {
 require("lspconfig").rust_analyzer.setup {
   capabilities = capabilities,
 }
+
+
+--cmpconfig
+local cmp = require("cmp")
+cmp.setup{
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+    },
+
+  mapping = cmp.mapping.preset.insert{
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm{ select = false },
+      ['<C-n>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif require("luasnip").expand_or_jumpable() then
+       require("luasnip").expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    },
+
+  sources = cmp.config.sources{
+      { name = 'luasnip' },
+      { name = 'nvim_lsp'},
+      { name = 'buffer' },
+    },
+
+}
+
 
