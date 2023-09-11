@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
- 'projekt0n/github-nvim-theme',
+ 'lunarvim/colorschemes',
  'h-hg/fcitx.nvim',
  'lambdalisue/suda.vim',
  'vim-test/vim-test',
