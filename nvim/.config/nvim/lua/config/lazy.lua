@@ -12,16 +12,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
- 'lunarvim/colorschemes',
- 'h-hg/fcitx.nvim',
- 'lambdalisue/suda.vim',
+ 'lunarvim/colorschemes',                               -- vi主题
+ 'h-hg/fcitx.nvim',                                     -- 中文输入法
+ 'lambdalisue/suda.vim',                                -- sw root权限写入
  'vim-test/vim-test',
- 'windwp/nvim-autopairs',
- 'tpope/vim-commentary',
- 'mg979/vim-visual-multi',
- 'tpope/vim-surround',
- 'gcmt/wildfire.vim',
- 'gbprod/substitute.nvim',
+ 'windwp/nvim-autopairs',                               -- 自动双括号
+ 'tpope/vim-commentary',                                -- gcc注释
+ 'mg979/vim-visual-multi',                              -- 块模式多光标
+ 'tpope/vim-surround',                                  -- cs"'
+ 'gcmt/wildfire.vim',                                   -- enter模块选择
+ 'gbprod/substitute.nvim',                              --yyss用以替代
  'uga-rosa/translate.nvim',
  'nvim-treesitter/nvim-treesitter',
  {'nvim-telescope/telescope.nvim',tag = '0.1.2',dependencies = 'nvim-lua/plenary.nvim' },
@@ -41,11 +41,11 @@ local plugins = {
   --completion
  --"github/copilot.vim",
 
- "williamboman/mason.nvim",                                --语言服务器管理
- "williamboman/mason-lspconfig.nvim",                      --mason对接lsp友好
- 'hrsh7th/nvim-cmp',                                       --代码补全引擎
- 'L3MON4D3/LuaSnip',                                       --代码片段引擎
- "neovim/nvim-lspconfig",                                  --lsp服务器设置
+ "williamboman/mason.nvim",                              --语言服务器管理
+ "williamboman/mason-lspconfig.nvim",                    --mason对接lsp友好
+ 'hrsh7th/nvim-cmp',                                     --代码补全引擎
+ 'L3MON4D3/LuaSnip',                                     --代码片段引擎
+ "neovim/nvim-lspconfig",                                --lsp服务器设置
  -- "glepnir/lspsaga.nvim",
 
 
