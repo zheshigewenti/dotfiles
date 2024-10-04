@@ -1,6 +1,12 @@
 # dotfiles
 
 ```
+cd /etc/
+vim pacman.conf #进入pacman配置文件
+
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch #清华源
+
 sudo timedatectl set-ntp true #时间同步
 
 sudo pacman -Syyu
@@ -24,7 +30,7 @@ stow nvim
 ##打开nvim :LAZY更新  :MASON安装补全引擎
 
 
-## 安装yay
+##安装yay
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
