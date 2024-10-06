@@ -37,6 +37,8 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si"
 
+<space>gcc #快速标注
+
 ##安装字体
 #英文
 yay -S ttf-liberation
