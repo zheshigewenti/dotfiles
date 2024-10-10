@@ -1,6 +1,22 @@
 # dotfiles&config
 
-```
+```shell
+cfdisk iwd
+
+## iwd
+#wifi
+iwctl
+device list
+station <waln> scan
+staion <wlan> get-networks
+station <wlan> connect <wifi-ssid>
+#dhcp
+cd /etc/iwd/main.conf
+[General]
+EnableNetworkConfiguration=true
+#dhcpcd
+dhcpcd &
+
 sudo passwd root
 cd /etc/
 vim pacman.conf #进入pacman配置文件
