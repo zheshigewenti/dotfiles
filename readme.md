@@ -7,6 +7,7 @@ vim pacman.conf #进入pacman配置文件
 
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch #清华源
+pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
 
 sudo timedatectl set-ntp true #时间同步
 
