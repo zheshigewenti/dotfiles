@@ -1,7 +1,7 @@
-# dotfiles&config
+# tips
 
 ```shell
-cfdisk iwd
+#要用到cfdisk iwd
 
 ## iwd
 #wifi
@@ -31,7 +31,7 @@ sudo pacman -Syyu
 
 sudo pacman -S stow
 sudo pacman -S zsh
-sudo pacman -S neovim #记得checkhealt
+sudo pacman -S neovim #记得checkhealth
 su root
 sudo chsh -s /bin/zsh vincent #改变vincent的shell
 
@@ -54,7 +54,7 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si"
 
-<space>gcc #快速标注
+<space>gcc #neovim快速标注
 
 ##安装字体
 #英文
