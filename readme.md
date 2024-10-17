@@ -1,7 +1,7 @@
 # tips
 
 ```shell
-#要用到cfdisk iwd
+#软件 cfdisk iwd fd ctags stow
 
 ## iwd
 #wifi
