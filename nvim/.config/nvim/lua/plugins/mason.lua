@@ -1,3 +1,3 @@
 require("mason").setup{}
-require("mason-lspconfig").setup{
-        ensure_installed = {"lua_ls","rust_analyzer", "ts_ls" }}
+require("mason-lspconfig").setup{                             --autoinstall lsp
+        ensure_installed = {"lua_ls","clangd","rust_analyzer", "ts_ls" }}
