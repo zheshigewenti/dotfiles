@@ -27,9 +27,9 @@ require("lspconfig").lua_ls.setup {
 --   capabilities = capabilities,
 -- }
 
-require("lspconfig").rust_analyzer.setup {
-  capabilities = capabilities,
-}
+-- require("lspconfig").rust_analyzer.setup {
+-- capabilities = capabilities,
+-- }
 
 
 --cmpconfig
