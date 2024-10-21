@@ -1,7 +1,7 @@
 # tips
 
 ```shell
-#软件 cfdisk iwd stow fd ctags ripgrep
+#软件 cfdisk iwd stow fd ctags ripgrep tmux
 
 ## iwd
 #wifi
@@ -55,6 +55,12 @@ cd yay-bin
 makepkg -si"
 
 <space>gcc #neovim快速标注
+
+##tmux
+#使用tpm管理插件
+prefix键设置为C-z
+prefix-\ 左右分终端
+prefix-- 上下分终端
 
 ##安装字体
 #英文
