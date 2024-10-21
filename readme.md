@@ -1,7 +1,7 @@
 # tips
 
 ```shell
-#软件 cfdisk iwd fd ctags stow
+#软件 cfdisk iwd stow fd ctags ripgrep
 
 ## iwd
 #wifi
