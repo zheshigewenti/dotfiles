@@ -61,6 +61,13 @@ makepkg -si"
 prefix键设置为C-z
 prefix-\ 左右分终端
 prefix-- 上下分终端
+prefix-d 分离当前终端
+prefix-s 打开终端列表
+prefix-x 关闭当前终端
+tmux a    #重新连接最近会话
+tmux a -t #重新连接托管会话
+tmux new -s #创建新会话会话
+
 
 ##安装字体
 #英文
