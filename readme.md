@@ -45,6 +45,7 @@ git config --global user.name "vincent" #告知git用户为vincent
 #ln nvim到你的.config文件夹中
 stow zsh
 stow nvim
+stow -D #取消相关软链接
 
 ##打开nvim :LAZY更新  :MASON安装补全引擎
 
