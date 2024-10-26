@@ -1,8 +1,10 @@
 bindkey -e
 
+# xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
+
+
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
-
 
 # Case-insensitive matching
 autoload -Uz compinit && compinit
@@ -13,15 +15,11 @@ SAVEHIST=200  # Save most-recent 20 lines
 HISTFILE=~/.zsh_history
 
 # git branch prompt
-
 function parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
 }
- 
 setopt PROMPT_SUBST
 export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{normal}%#%f '
-
-
 
 # alias
 # alias grep='grep --color=auto'
@@ -54,7 +52,7 @@ export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 export LC_CTYPE=en_US.UTF-8
 
+
 source ~/.zsh/z/z.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
