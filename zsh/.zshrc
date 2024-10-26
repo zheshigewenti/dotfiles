@@ -26,7 +26,7 @@ export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{norma
 # alias
 # alias grep='grep --color=auto'
 alias ls='ls --color'
-alias vim='nvim'
+alias vi='nvim'
 alias n='neofetch'
 alias reboot='sudo reboot'
 alias j='joshuto'
