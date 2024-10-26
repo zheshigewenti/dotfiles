@@ -10,9 +10,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# history
-SAVEHIST=40  # Save most-recent 20 lines
-HISTFILE=~/.zsh_history
 
 # git branch prompt
 function parse_git_branch() {
@@ -53,6 +50,9 @@ export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 export LC_CTYPE=en_US.UTF-8
 
+# history
+SAVEHIST=100  # Save most-recent 100 lines
+HISTFILE=~/.zsh_history
 
 source ~/.zsh/z/z.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
