@@ -48,6 +48,9 @@ stow nvim
 stow -D #取消相关软链接
 
 ##打开nvim :LAZY更新  :MASON安装补全引擎
+C-d 向下翻页
+C-u 向上翻页
+<space>gcc #neovim快速标注
 
 ##安装yay
 pacman -S --needed git base-devel
@@ -55,7 +58,6 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si"
 
-<space>gcc #neovim快速标注
 
 ##tmux
 #使用tpm管理插件

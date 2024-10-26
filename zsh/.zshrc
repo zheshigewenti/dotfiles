@@ -1,6 +1,6 @@
 bindkey -e
 
-xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
+# xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 
 
 # zsh-autosuggestions
