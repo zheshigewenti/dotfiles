@@ -69,6 +69,8 @@ tmux a    #重新连接最近会话
 tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
 
+##latex
+sudo pacman -S texlive-core texlive-langchinese
 
 ##安装字体
 #英文
