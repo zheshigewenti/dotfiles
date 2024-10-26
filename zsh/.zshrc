@@ -11,7 +11,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # history
-SAVEHIST=200  # Save most-recent 20 lines
+SAVEHIST=40  # Save most-recent 20 lines
 HISTFILE=~/.zsh_history
 
 # git branch prompt
@@ -35,7 +35,8 @@ export EDITOR=nvim
 # export LS_COLORS="$LS_COLORS::ln=36:di=35:ex=32:*.tar=0;31:*.gz=0;31:*.zip=0;31:*.xz=0;31:*.jpg=0;33:*.png=0;33:*.jpeg=0;33"
 
 # proxy
-# export http_proxy=http://127.0.0.1:7890/
+# export ALL_PROXY=http://127.0.0.1:12334
+# export http_proxy=http://127.0.0.1:12334/
 # export https_proxy=$http_proxy
 # export ftp_proxy=$http_proxy
 # export rsync_proxy=$http_proxy
