@@ -1,9 +1,7 @@
 # tips
 
 ```shell
-#软件 cfdisk iwd stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh
-
-## iwd
+##iwd
 #wifi
 iwctl
 device list
@@ -17,40 +15,38 @@ EnableNetworkConfiguration=true
 #dhcpcd
 dhcpcd &
 
+##wsl
+wsl --unregister arch #注销该子系统，这才是完全卸载 
+
+#disk wifi工具 cfdisk iwd 
+#arch软件 stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim
+
 sudo passwd root
-cd /etc/
-vim pacman.conf #进入pacman配置文件
-
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch #清华源
-pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
-
-sudo timedatectl set-ntp true #时间同步
-
-sudo pacman -Syyu
-
-sudo pacman -S stow
-sudo pacman -S zsh
-sudo pacman -S neovim #记得checkhealth
 su root
-sudo chsh -s /bin/zsh vincent #改变vincent的shell
+cd /etc/
+vim pacman.conf #进入pacman配置源
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+sudo pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
+sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key                                 
+sudo pacman -S zsh
+sudo chsh -s /bin/zsh vincent #改变vincent的shell #重启wsl后开代理
+wsl.exe --shutdown
+sudo pacman -Syyu
+sudo pacman -S stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim github-cli git
 
-sudo pacman -S git github-cli
-gh auth login #注意保存github令牌
-
-##stow管理
+##git
+git clone https://github.com/zheshigewenti/dotfiles.git
+gh auth login #github-cli登录 注意保存github token
 cd dotfiles
 git config --global user.name "vincent" #告知git用户为vincent
 
-#ln nvim到你的.config文件夹中
+##stow
 stow zsh
-stow nvim
+stow nvim #nvim lazy和mason记得更新
 stow -D #取消相关软链接
-
-##打开nvim :LAZY更新  :MASON安装补全引擎
 C-d 向下翻页
 C-u 向上翻页
-<space>gcc #neovim快速标注
 
 ##tmux
 #使用tpm管理插件
@@ -69,11 +65,11 @@ bash ~/.tmux/plugins/tpm/bin/install_plugins #tpm安装
 ##latex
 sudo pacman -S texlive-core texlive-langchinese
 
-##安装字体
-#英文
-yay -S ttf-liberation
-#中文&韩文
-yay -S wqy-microhei-kr-patched
-#字符&表情
-yay -S ttf-sourcecodepro-nerd noto-fonts-emoji
+##fonts
+yay -S ttf-liberation #英文
+yay -S wqy-microhei-kr-patched #中文&韩文
+yay -S ttf-sourcecodepro-nerd noto-fonts-emoji #字符&表情
+
+<space>gcc #neovim快速标注
+sudo timedatectl set-ntp true #时间同步
 ```
