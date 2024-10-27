@@ -1,7 +1,7 @@
 # tips
 
 ```shell
-#软件 cfdisk iwd stow fd ctags ripgrep tmux
+#软件 cfdisk iwd stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay
 
 ## iwd
 #wifi
