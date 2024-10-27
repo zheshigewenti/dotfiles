@@ -1,7 +1,7 @@
 # tips
 
 ```shell
-#软件 cfdisk iwd stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay
+#软件 cfdisk iwd stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh
 
 ## iwd
 #wifi
@@ -52,13 +52,6 @@ C-d 向下翻页
 C-u 向上翻页
 <space>gcc #neovim快速标注
 
-##安装yay
-pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si"
-
-
 ##tmux
 #使用tpm管理插件
 prefix键设置为C-z
@@ -70,6 +63,8 @@ prefix-x 关闭当前终端
 tmux a    #重新连接最近会话
 tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+bash ~/.tmux/plugins/tpm/bin/install_plugins #tpm安装
 
 ##latex
 sudo pacman -S texlive-core texlive-langchinese
