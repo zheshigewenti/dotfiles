@@ -4,33 +4,32 @@ require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snip/" } })
 
 
 ----lspconfig
--- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- require("lspconfig").lua_ls.setup {
---   capabilities = capabilities,
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = { "vim" },
---       },
---       workspace = {
---         library = {
---           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
---           [vim.fn.stdpath "config" .. "/lua"] = true,
---         },
---       },
---     },
---   }
--- }
+require("lspconfig").lua_ls.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.stdpath "config" .. "/lua"] = true,
+        },
+      },
+    },
+  }
+}
 
--- require("lspconfig").clangd.setup {
---   capabilities = capabilities,
--- }
+require("lspconfig").clangd.setup {
+  capabilities = capabilities,
+}
 
--- require("lspconfig").rust_analyzer.setup {
--- capabilities = capabilities,
--- }
-
+require("lspconfig").rust_analyzer.setup {
+capabilities = capabilities,
+}
 
 ----cmpconfig
 local cmp = require("cmp")

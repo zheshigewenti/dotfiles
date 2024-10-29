@@ -17,11 +17,11 @@ local plugins = {
  'lambdalisue/suda.vim',                          -- sw root权限写入
  'vim-test/vim-test',
  'windwp/nvim-autopairs',                         -- 自动双括号
- 'tpope/vim-commentary',                          -- gcc注释
+ 'tpope/vim-commentary',                          -- gc注释
  'mg979/vim-visual-multi',                        -- 块模式多光标
  'tpope/vim-surround',                            -- cs"'
  'gcmt/wildfire.vim',                             -- enter模块选择
- 'gbprod/substitute.nvim',                        --yyss用以替代
+ -- 'gbprod/substitute.nvim',                        --yyss用以替代
  'uga-rosa/translate.nvim',
  'nvim-treesitter/nvim-treesitter',
  {'nvim-telescope/telescope.nvim',tag = '0.1.2',dependencies = 'nvim-lua/plenary.nvim' },
