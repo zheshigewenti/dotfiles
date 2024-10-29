@@ -68,8 +68,8 @@ sudo pacman -S texlive-core texlive-langchinese
 ##fonts
 yay -S ttf-liberation #英文
 yay -S wqy-microhei-kr-patched #中文&韩文
-yay -S ttf-sourcecodepro-nerd noto-fonts-emoji #字符&表情
+#yay -S ttf-sourcecodepro-nerd noto-fonts-emoji #字符&表情
 
-<space>gcc #neovim快速标注
+gc<space> #neovim快速标注
 sudo timedatectl set-ntp true #时间同步
 ```
