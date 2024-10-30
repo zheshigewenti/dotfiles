@@ -16,9 +16,9 @@ EnableNetworkConfiguration=true
 dhcpcd &
 
 ##wsl
-wsl --unregister arch #注销该子系统，这才是完全卸载 
+wsl --unregister arch #注销该子系统，这才是完全卸载
 
-#disk wifi工具 cfdisk iwd 
+#disk wifi工具 cfdisk iwd
 #arch软件 stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim
 
 sudo passwd root
@@ -28,7 +28,7 @@ vim pacman.conf #进入pacman配置源
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 sudo pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
-sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key                                 
+sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key
 sudo pacman -S zsh
 sudo chsh -s /bin/zsh vincent #改变vincent的shell #重启wsl后开代理
 wsl.exe --shutdown
@@ -42,11 +42,11 @@ cd dotfiles
 git config --global user.name "vincent" #告知git用户为vincent
 
 ##stow
+C-d 向下翻页
+C-u 向上翻页
 stow zsh
 stow nvim #nvim lazy和mason记得更新
 stow -D #取消相关软链接
-C-d 向下翻页
-C-u 向上翻页
 
 ##tmux
 #使用tpm管理插件
