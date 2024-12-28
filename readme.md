@@ -19,8 +19,30 @@ dhcpcd &
 wsl.exe --shutdown
 wsl --unregister arch #注销该子系统，这才是完全卸载
 
-#disk wifi工具 cfdisk iwd
-#arch软件 stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim
+#disk&wifiutils cfdisk iwd
+
+timedatectl set-ntp true
+cfdisk
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+mount /dev/sda3 /mnt
+mkdir -p /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi/
+swapon /dev/sda2
+pacstrap /mnt base linux linux-firmware sudo grub efibootmgr networkmanager intel-ucode neovim
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc
+nvim /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf 
+systemctl enable NetworkManager
+useradd -m -G wheel vincent
+passwd
+
+#archutils stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim
 
 sudo passwd root
 su root
