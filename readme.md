@@ -52,7 +52,7 @@ vim pacman.conf #进入pacman配置源
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 sudo pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
 sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key                        
- sudo pacman -S zs 0
+sudo pacman -S zsh
 sudo chsh -s /bin/zsh vincent #改变vincent的shell #重启wsl后开代理
 sudo pacman -Syyu
 sudo pacman -S stow fd ctags ripgrep tmux unzip npm joshuto lazygit yay feh nmap wget openssh neovim github-cli git
