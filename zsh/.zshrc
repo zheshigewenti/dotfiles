@@ -24,7 +24,6 @@ alias ls='ls --color'
 alias vi='nvim'
 alias n='neofetch'
 alias reboot='sudo reboot'
-alias j='joshuto'
 alias t='thunar'
 export EDITOR=nvim
 
