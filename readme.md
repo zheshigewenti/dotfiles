@@ -47,9 +47,8 @@ passwd
 sudo passwd root
 su root
 cd /etc/
-vim pacman.conf #进入pacman配置源
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+# 配置清华源 出现问题可以重置包管理器密钥环pacman-key --init && pacman-key --populate pacman -Sy archlinux-keyring && pacman -Su
+echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 sudo pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
 sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key
 sudo pacman -S zsh
