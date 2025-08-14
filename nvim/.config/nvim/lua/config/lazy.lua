@@ -34,10 +34,10 @@ local plugins = {
  'lewis6991/gitsigns.nvim',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
   --rust
- 'mfussenegger/nvim-dap',
- 'nvim-neotest/nvim-nio',
- 'rcarriga/nvim-dap-ui',
- 'simrat39/rust-tools.nvim',
+ -- 'mfussenegger/nvim-dap',
+ -- 'nvim-neotest/nvim-nio',
+ -- 'rcarriga/nvim-dap-ui',
+ -- 'simrat39/rust-tools.nvim',
   --completion
  --"github/copilot.vim",
 
