@@ -26,6 +26,7 @@ alias n='neofetch'
 alias reboot='sudo reboot'
 alias t='thunar'
 export EDITOR=nvim
+export VISUAL=nvim
 
 # color
 # export LS_COLORS="$LS_COLORS::ln=36:di=35:ex=32:*.tar=0;31:*.gz=0;31:*.zip=0;31:*.xz=0;31:*.jpg=0;33:*.png=0;33:*.jpeg=0;33"

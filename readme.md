@@ -1,6 +1,13 @@
 # tips
 
 ```shell
+##macos
+#安装homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+brew bundle dump      #从当前包生成Brewfile
+brew bundle dump -f   #覆盖当前Brewfile
+brew bundle           #安装Brewfile里所有包
+
 ##iwd
 #wifi
 iwctl
