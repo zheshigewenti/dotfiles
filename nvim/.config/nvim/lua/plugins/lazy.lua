@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
  'lunarvim/colorschemes',                         -- vi主题
- 'h-hg/fcitx.nvim',                               -- 中文输入法
+ -- 'h-hg/fcitx.nvim',                               --中英文输入法切换
  'lambdalisue/suda.vim',                          -- sw root权限写入
  'vim-test/vim-test',
  'windwp/nvim-autopairs',                         -- 自动双括号
@@ -24,7 +24,7 @@ local plugins = {
  -- 'gbprod/substitute.nvim',                        --yyss用以替代
  'uga-rosa/translate.nvim',
  'nvim-treesitter/nvim-treesitter',
- {'nvim-telescope/telescope.nvim',tag = '0.1.2',dependencies = 'nvim-lua/plenary.nvim' },
+ 'nvim-telescope/telescope.nvim',
  -- markdown
  'dhruvasagar/vim-table-mode',
  'mzlogin/vim-markdown-toc',
@@ -33,12 +33,8 @@ local plugins = {
  -- git
  'lewis6991/gitsigns.nvim',
  {'kdheepak/lazygit.nvim',dependencies = 'nvim-lua/plenary.nvim'},
-  --rust
- -- 'mfussenegger/nvim-dap',
- -- 'nvim-neotest/nvim-nio',
- -- 'rcarriga/nvim-dap-ui',
- -- 'simrat39/rust-tools.nvim',
-  --completion
+
+ --completion
  --"github/copilot.vim",
 
  "williamboman/mason.nvim",                       --语言服务器管理
