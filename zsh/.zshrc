@@ -1,4 +1,4 @@
-bindkey -e
+bindkey -v
 
 # xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 
@@ -55,3 +55,4 @@ HISTFILE=~/.zsh_history
 
 source ~/.zsh/z/z.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$HOME/.local/bin:$PATH"
