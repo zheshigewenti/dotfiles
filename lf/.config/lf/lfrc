@@ -1,26 +1,36 @@
-# [cite_start]设置 shell 命令的解释器 [cite: 1]
+# 设置 shell 命令的解释器
 set shell sh
 
 # 为 shell 命令设置安全选项
-# [cite_start]-e: 命令执行失败时立即退出 [cite: 2]
-# [cite_start]-u: 遇到未定义的变量时报错 [cite: 2]
 set shellopts '-eu'
 
 # 设置内部字段分隔符 (IFS) 为换行符
-# [cite_start]确保正确处理带空格的文件名，因为 lf 默认以换行符分隔文件 [cite: 5, 7]
 set ifs "\n"
 
-# 在屏幕顶部和底部保留 10 行的滚动边距
-set scrolloff 10
+# --- 初始化检查 ---
+# 启动时检查当前用户家目录下是否存在 .trash，不存在则创建
+%mkdir -p "$HOME/.trash"
 
-# 在预览面板中，光标使用“反白/变暗”效果替代下划线
+# 界面展示设置
+set scrolloff 10
 set cursorpreviewfmt "\033[7;2m"
 
-# 使用 Enter 键直接进入 shell 命令模式
+# 基础快捷键映射
 map <enter> shell
 
-# 定义自定义的 'open' 命令
-# [cite_start]逻辑：文本文件使用编辑器打开，其他文件使用系统默认程序在后台打开 [cite: 10]
+# --- 快速创建功能 ---
+# 快速创建目录命令 (快捷键: m)
+map m :push %mkdir<space>
+# 快速创建文件命令 (快捷键: t)
+map t :push %touch<space>
+
+# --- 压缩/解压功能 ---
+# 映射 l 键执行解压命令
+map l extract
+# 映射 c 键准备执行压缩命令 (需手动输入压缩包名)
+map c :push %tar<space>
+
+# 定义 'open' 命令
 cmd open &{{
     case $(file --mime-type -Lb "$f") in
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
@@ -28,36 +38,21 @@ cmd open &{{
     esac
 }}
 
-# --- 快速创建功能 ---
-# 快速创建目录命令 (快捷键: m)
-map m :push %mkdir<space>
-
-# 快速创建文件命令 (快捷键: t)
-map t :push %touch<space>
-
-# [cite_start]将选中的文件移动到回收站 (需提前创建 ~/.trash 目录) [cite: 13, 14]
-cmd trash %set -f; mv -t ~/.trash $fx
-
-# --- 永久删除指令 (界面内确认) ---
-# 该命令会跳过回收站直接从磁盘删除文件
-cmd delete ${{
+# --- 改进后的回收站指令 (带确认清单) ---
+cmd trash_confirm ${{
     set -f
-    # 在 lf 底部状态栏显示确认提示
-    printf "确认永久删除选中的文件? [y/N] "
+    # 打印即将移动到回收站的文件列表
+    printf "$fx\n"
+    printf "\n确认将以上文件移至回收站? [y/N] "
     read ans
-    if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
-        rm -rf $fx
-        lf -remote "send $id echo '文件已永久删除'"
-    else
-        lf -remote "send $id echo '操作已取消'"
-    fi
+    # 移动到当前用户的回收站目录
+    [ "$ans" = "y" ] || [ "$ans" = "Y" ] && mv -t "$HOME/.trash" $fx
 }}
 
-# 映射大写 D 执行永久删除
-map D delete
+# 映射大写 D 执行带确认的回收站操作
+map D trash_confirm
 
-# 提取/解压当前文件
-# [cite_start]根据扩展名自动匹配解压指令 [cite: 14, 15, 16]
+# 提取/解压当前文件指令
 cmd extract ${{
     set -f
     case "$f" in
@@ -70,7 +65,7 @@ cmd extract ${{
     esac
 }}
 
-# 使用 tar 和 gunzip 压缩选中的文件
+# 压缩指令 (tar.gz)
 cmd tar ${{
     set -f
     mkdir "$1"
@@ -79,7 +74,7 @@ cmd tar ${{
     rm -rf "$1"
 }}
 
-# 使用 zip 压缩选中的文件
+# 压缩指令 (zip)
 cmd zip ${{
     set -f
     mkdir "$1"
