@@ -1,13 +1,13 @@
-# 设置 shell 命令的解释器
+# [cite_start]设置 shell 命令的解释器 [cite: 1]
 set shell sh
 
 # 为 shell 命令设置安全选项
-# -e: 命令执行失败时立即退出
-# -u: 遇到未定义的变量时报错
+# [cite_start]-e: 命令执行失败时立即退出 [cite: 2]
+# [cite_start]-u: 遇到未定义的变量时报错 [cite: 2]
 set shellopts '-eu'
 
 # 设置内部字段分隔符 (IFS) 为换行符
-# 确保正确处理带空格的文件名，因为 lf 默认以换行符分隔文件
+# [cite_start]确保正确处理带空格的文件名，因为 lf 默认以换行符分隔文件 [cite: 5, 7]
 set ifs "\n"
 
 # 在屏幕顶部和底部保留 10 行的滚动边距
@@ -20,7 +20,7 @@ set cursorpreviewfmt "\033[7;2m"
 map <enter> shell
 
 # 定义自定义的 'open' 命令
-# 逻辑：文本文件使用编辑器打开，其他文件使用系统默认程序在后台打开
+# [cite_start]逻辑：文本文件使用编辑器打开，其他文件使用系统默认程序在后台打开 [cite: 10]
 cmd open &{{
     case $(file --mime-type -Lb "$f") in
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
@@ -35,27 +35,29 @@ map m :push %mkdir<space>
 # 快速创建文件命令 (快捷键: t)
 map t :push %touch<space>
 
-# 将选中的文件移动到回收站 (需提前创建 ~/.trash 目录)
+# [cite_start]将选中的文件移动到回收站 (需提前创建 ~/.trash 目录) [cite: 13, 14]
 cmd trash %set -f; mv -t ~/.trash $fx
 
-# --- 永久删除指令 (带二次确认) ---
+# --- 永久删除指令 (界面内确认) ---
 # 该命令会跳过回收站直接从磁盘删除文件
 cmd delete ${{
     set -f
-    # 打印即将被删除的文件列表
-    printf "$fx\n"
-    # 询问用户确认
-    printf "确认永久删除以上文件? [y/N] "
+    # 在 lf 底部状态栏显示确认提示
+    printf "确认永久删除选中的文件? [y/N] "
     read ans
-    # 仅当输入大写或小写的 Y 时执行删除
-    [ "$ans" = "y" ] || [ "$ans" = "Y" ] && rm -rf $fx
+    if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+        rm -rf $fx
+        lf -remote "send $id echo '文件已永久删除'"
+    else
+        lf -remote "send $id echo '操作已取消'"
+    fi
 }}
 
 # 映射大写 D 执行永久删除
 map D delete
 
 # 提取/解压当前文件
-# 根据扩展名自动匹配解压指令
+# [cite_start]根据扩展名自动匹配解压指令 [cite: 14, 15, 16]
 cmd extract ${{
     set -f
     case "$f" in
