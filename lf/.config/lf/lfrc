@@ -7,10 +7,6 @@ set shellopts '-eu'
 # 设置内部字段分隔符 (IFS) 为换行符
 set ifs "\n"
 
-# --- 初始化检查 ---
-# 启动时检查当前用户家目录下是否存在 .trash，不存在则创建
-%mkdir -p "$HOME/.trash"
-
 # 界面展示设置
 set scrolloff 10
 set cursorpreviewfmt "\033[7;2m"
@@ -18,17 +14,31 @@ set cursorpreviewfmt "\033[7;2m"
 # 基础快捷键映射
 map <enter> shell
 
+# --- 视图切换 ---
+# 切换显示/隐藏以点开头的文件
+map zh :set hidden!
+
 # --- 快速创建功能 ---
-# 快速创建目录命令 (快捷键: m)
 map m :push %mkdir<space>
-# 快速创建文件命令 (快捷键: t)
 map t :push %touch<space>
 
-# --- 压缩/解压功能 ---
-# 映射 l 键执行解压命令
-map l extract
-# 映射 c 键准备执行压缩命令 (需手动输入压缩包名)
-map c :push %tar<space>
+# --- 解压功能 ---
+map x extract
+
+# --- 带确认的彻底删除功能 ---
+# 定义删除确认指令
+cmd delete_confirm ${{
+    set -f
+    # 在底部打印出选中的文件清单，确保删除前心中有数
+    printf "$fx\n" 
+    printf "\n确定要彻底删除以上文件吗？此操作不可撤销！[y/N] "
+    read ans
+    # 只有输入 y 或 Y 时才执行内置的 delete 命令
+    [ "$ans" = "y" ] || [ "$ans" = "Y" ] && lf -remote "send $id delete"
+}}
+
+# 将大写 D 映射到这个带确认的自定义命令上
+map D delete_confirm
 
 # 定义 'open' 命令
 cmd open &{{
@@ -37,20 +47,6 @@ cmd open &{{
         *) for f in $fx; do $OPENER "$f" > /dev/null 2> /dev/null & done;;
     esac
 }}
-
-# --- 改进后的回收站指令 (带确认清单) ---
-cmd trash_confirm ${{
-    set -f
-    # 打印即将移动到回收站的文件列表
-    printf "$fx\n"
-    printf "\n确认将以上文件移至回收站? [y/N] "
-    read ans
-    # 移动到当前用户的回收站目录
-    [ "$ans" = "y" ] || [ "$ans" = "Y" ] && mv -t "$HOME/.trash" $fx
-}}
-
-# 映射大写 D 执行带确认的回收站操作
-map D trash_confirm
 
 # 提取/解压当前文件指令
 cmd extract ${{
@@ -63,22 +59,4 @@ cmd extract ${{
         *.rar) unrar x "$f";;
         *.7z) 7z x "$f";;
     esac
-}}
-
-# 压缩指令 (tar.gz)
-cmd tar ${{
-    set -f
-    mkdir "$1"
-    cp -r $fx "$1"
-    tar czf "$1.tar.gz" "$1"
-    rm -rf "$1"
-}}
-
-# 压缩指令 (zip)
-cmd zip ${{
-    set -f
-    mkdir "$1"
-    cp -r $fx "$1"
-    zip -r "$1.zip" "$1"
-    rm -rf "$1"
 }}
