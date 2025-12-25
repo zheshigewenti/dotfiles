@@ -26,19 +26,7 @@ map t :push %touch<space>
 map x extract
 
 # --- 带确认的彻底删除功能 ---
-# 定义删除确认指令
-cmd delete_confirm ${{
-    set -f
-    # 在底部打印出选中的文件清单，确保删除前心中有数
-    printf "$fx\n" 
-    printf "\n确定要彻底删除以上文件吗？此操作不可撤销！[y/N] "
-    read ans
-    # 只有输入 y 或 Y 时才执行内置的 delete 命令
-    [ "$ans" = "y" ] || [ "$ans" = "Y" ] && lf -remote "send $id delete"
-}}
-
-# 将大写 D 映射到这个带确认的自定义命令上
-map D delete_confirm
+map D delete
 
 # 定义 'open' 命令
 cmd open &{{
