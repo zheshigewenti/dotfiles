@@ -48,3 +48,21 @@ cmd extract ${{
         *.7z) 7z x "$f";;
     esac
 }}
+# --- 复制文件到系统剪贴板 (最稳妥的 AppleScript 修正版) ---
+cmd copy_to_clipboard ${{
+    # 确保获取的是纯粹的绝对路径，不带多余的转义
+    abs_path="$(cd "$(dirname "$f")"; pwd)/$(basename "$f")"
+
+    # 使用最基础的 AppleScript 语法
+    # 直接将路径交给 Finder 处理，它是最识别这种格式的
+    osascript -e "tell application \"Finder\" to set the clipboard to (POSIX file \"$abs_path\")"
+
+    # 提示反馈
+    if [ $? -eq 0 ]; then
+        lf -remote "send $id echo '已复制文件'"
+    else
+        lf -remote "send $id echo '复制失败，请检查自动化权限'"
+    fi
+}}
+
+map Y copy_to_clipboard
