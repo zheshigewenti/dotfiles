@@ -3,7 +3,7 @@
 ```shell
 ##macos
 #安装homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle dump      #从当前包生成Brewfile
 brew bundle dump -f   #覆盖当前Brewfile
 brew bundle           #安装Brewfile里所有包
@@ -66,20 +66,16 @@ sudo pacman -S stow fd ctags ripgrep tmux unzip npm lf lazygit yay feh nmap wget
 ##git
 git clone https://github.com/zheshigewenti/dotfiles.git
 gh auth login #github-cli登录 注意保存github token
-cd dotfiles
-git config --global user.name "vincent" #告知git用户为vincent
+git config --global user.name "vincent" #仓库内告知git用户为vincent
 
 ##stow
-C-d 向下翻页
-C-u 向上翻页
-stow zsh
-stow nvim #nvim lazy和mason记得更新
+stow nvim #利用stow将nvim配置链接到.config文件夹下
 stow -D #取消相关软链接
 
 ##tmux
 #使用tpm管理插件
-prefix键设置为C-z
-prefix-\ 左右分终端
+prefix键设置为C-a
+prefix-| 左右分终端
 prefix-- 上下分终端
 prefix-d 分离当前终端
 prefix-s 打开终端列表
@@ -87,8 +83,6 @@ prefix-x 关闭当前终端
 tmux a    #重新连接最近会话
 tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-bash ~/.tmux/plugins/tpm/bin/install_plugins #tpm安装
 
 ##latex
 sudo pacman -S texlive-core texlive-langchinese
