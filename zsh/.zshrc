@@ -6,7 +6,6 @@ HISTSIZE=10000
 SAVEHIST=10000  # 解决原本 100 行限制导致命令丢失的问题 
 HISTFILE=~/.zsh_history
 setopt HIST_IGNORE_DUPS  # 不记录重复的命令
-
 # --- 自动补全与建议 ---
 # 加载 zsh-autosuggestions 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -58,3 +57,8 @@ proxy_on
 # --- 插件与路径 ---
 source ~/.zsh/z/z.sh
 export PATH="$HOME/.local/bin:$PATH"
+
+#homebrew国内源
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_INSTALL_FROM_API=1
