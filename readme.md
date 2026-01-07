@@ -88,9 +88,10 @@ tmux new -s #创建新会话会话
 sudo pacman -S texlive-core texlive-langchinese
 
 ##fonts
-yay -S ttf-liberation #英文
-yay -S wqy-microhei-kr-patched #中文&韩文
-yay -S ttf-sourcecodepro-nerd noto-fonts-emoji #字符&表情
+noto-fonts
+noto-fonts-cjk-sans   # Google 中文黑体
+noto-fonts-cjk-serif  # Google 中文宋体
+noto-fonts-color-emoji 
 
 gc<space> #neovim快速标注
 ```
