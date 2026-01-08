@@ -73,7 +73,6 @@ stow nvim #利用stow将nvim配置链接到.config文件夹下
 stow -D #取消相关软链接
 
 ##tmux
-#使用tpm管理插件
 prefix键设置为C-a
 prefix-| 左右分终端
 prefix-- 上下分终端
@@ -93,5 +92,5 @@ noto-fonts-cjk-sans   # Google 中文黑体
 noto-fonts-cjk-serif  # Google 中文宋体
 noto-fonts-color-emoji 
 
-gc<space> #neovim快速标注
+gc #neovim快速标注
 ```
