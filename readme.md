@@ -93,4 +93,7 @@ noto-fonts-cjk-serif  # Google 中文宋体
 noto-fonts-color-emoji 
 
 gc #neovim快速标注
+grep -rn <file> #递归搜索文本且显示行数
+sed -i 's/<old>/<new>/g <file> #全局替换文本
+:%/<old>/<new>/g #vim中全局替换文本
 ```
