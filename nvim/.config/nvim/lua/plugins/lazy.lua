@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     -- 基础依赖
     'nvim-lua/plenary.nvim',
-    'lunarvim/colorschemes',
+    -- 'lunarvim/colorschemes',
 
     -- 语法解析
     { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
@@ -130,5 +130,5 @@ vim.keymap.set("n", "<leader>ts", "viw:Translate ZH<cr>")
 vim.keymap.set('n', '<Space><Space>', require('telescope.builtin').oldfiles, {})
 vim.keymap.set('n', '<leader>te', ':TestNearest<CR>')
 vim.keymap.set('n', '<leader>T', ':TestFile<CR>')
-vim.cmd('colorscheme aurora')
+-- vim.cmd('colorscheme aurora')
 vim.cmd [[ let test#strategy = "vimux" ]]
