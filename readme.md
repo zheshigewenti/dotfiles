@@ -94,4 +94,6 @@ gc #neovim快速标注
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
 :%/<old>/<new>/g #vim中全局替换文本
+sudo tshark -i wlp0s20f3 -w 1.pcap -c 50 #tshark抓包并保存到1.pcap
+tshark -r 1.pcap -T fields -e ip.dst | sort | uniq #过滤1.pcap中重复ip
 ```
