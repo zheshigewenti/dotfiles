@@ -1,5 +1,3 @@
-# tips
-
 ```shell
 ##macos
 #安装homebrew
