@@ -30,7 +30,7 @@ export LANG=zh_CN.UTF-8
 
 alias ls='ls --color'
 alias vi='nvim'
-alias v='nvim'
+alias lg='lazygit'
 alias f='lf'
 alias n='neofetch'
 alias reboot='sudo reboot'
