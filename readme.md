@@ -5,6 +5,33 @@
 brew bundle dump      #从当前包生成Brewfile
 brew bundle dump -f   #覆盖当前Brewfile
 brew bundle           #安装Brewfile里所有包
+
+##git
+git clone https://github.com/zheshigewenti/dotfiles.git
+gh auth login #github-cli登录 注意保存github token
+git config --global user.name "vincent" #仓库内告知git用户为vincent
+
+##stow
+stow nvim #利用stow将nvim配置链接到.config文件夹下
+stow -D #取消相关软链接
+
+##tmux
+prefix键设置为C-a
+prefix-| 左右分终端
+prefix-- 上下分终端
+prefix-d 分离当前终端
+prefix-s 打开终端列表
+prefix-x 关闭当前终端
+tmux a    #重新连接最近会话
+tmux a -t #重新连接托管会话
+tmux new -s #创建新会话会话
+
+gc #neovim快速标注
+grep -rn <file> #递归搜索文本且显示行数
+sed -i 's/<old>/<new>/g' <file> #全局替换文本
+:%/<old>/<new>/g #vim中全局替换文本
+sudo tshark -i wlp0s20f3 -w 1.pcap -c 50 #tshark抓包并保存到1.pcap
+tshark -r 1.pcap -T fields -e ip.dst | sort | uniq #过滤1.pcap中重复ip
 ```
 ### windows
 ``
@@ -29,9 +56,6 @@ EnableNetworkConfiguration=true
 #dhcpcd
 dhcpcd &
 
-
-#disk&wifiutils cfdisk iwd
-
 timedatectl set-ntp true
 cfdisk
 mkfs.fat -F32 /dev/sda1
@@ -53,13 +77,10 @@ systemctl enable NetworkManager
 useradd -m -G wheel vincent
 passwd
 
-#archutils stow fd ctags ripgrep tmux unzip npm lf lazygit yay feh nmap wget openssh neovim
-
 sudo passwd root
 su root
 cd /etc/
-# 配置清华源 出现问题可以重置包管理器密钥环pacman-key --init && pacman-key --populate pacman -Sy archlinux-keyring && pacman -Su
-echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist # 配置清华源 出现问题可以重置包管理器密钥环pacman-key --init && pacman-key --populate pacman -Sy archlinux-keyring && pacman -Su
 sudo pacman-key --lsign-key "farseerfc@archlinux.org" #本地信任farseerfc的GPG key
 sudo pacman-key --lsign-key "lilac@build.archlinuxcn.org"  #本地信任lilac的GPG key
 sudo pacman -S zsh
@@ -67,36 +88,9 @@ sudo chsh -s /bin/zsh vincent #改变vincent的shell #重启wsl后开代理
 sudo pacman -Syyu
 sudo pacman -S stow fd ctags ripgrep tmux unzip npm lf lazygit yay feh nmap wget openssh neovim github-cli git
 
-##git
-git clone https://github.com/zheshigewenti/dotfiles.git
-gh auth login #github-cli登录 注意保存github token
-git config --global user.name "vincent" #仓库内告知git用户为vincent
-
-##stow
-stow nvim #利用stow将nvim配置链接到.config文件夹下
-stow -D #取消相关软链接
-
-##tmux
-prefix键设置为C-a
-prefix-| 左右分终端
-prefix-- 上下分终端
-prefix-d 分离当前终端
-prefix-s 打开终端列表
-prefix-x 关闭当前终端
-tmux a    #重新连接最近会话
-tmux a -t #重新连接托管会话
-tmux new -s #创建新会话会话
-
 ##fonts
 noto-fonts
 noto-fonts-cjk-sans   # Google 中文黑体
 noto-fonts-cjk-serif  # Google 中文宋体
 noto-fonts-color-emoji 
-
-gc #neovim快速标注
-grep -rn <file> #递归搜索文本且显示行数
-sed -i 's/<old>/<new>/g' <file> #全局替换文本
-:%/<old>/<new>/g #vim中全局替换文本
-sudo tshark -i wlp0s20f3 -w 1.pcap -c 50 #tshark抓包并保存到1.pcap
-tshark -r 1.pcap -T fields -e ip.dst | sort | uniq #过滤1.pcap中重复ip
 ```
