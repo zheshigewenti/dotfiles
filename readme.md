@@ -34,11 +34,11 @@ sudo tshark -i wlp0s20f3 -w 1.pcap -c 50 #tshark抓包并保存到1.pcap
 tshark -r 1.pcap -T fields -e ip.dst | sort | uniq #过滤1.pcap中重复ip
 ```
 ### windows
-``
+```
 ##wsl
 wsl.exe --shutdown
 wsl --unregister arch #注销该子系统，这才是完全卸载
-``
+```
 
 ### arch
 ```
