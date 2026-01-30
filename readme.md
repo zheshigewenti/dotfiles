@@ -50,9 +50,7 @@ station <waln> scan
 staion <wlan> get-networks
 station <wlan> connect <wifi-ssid>
 #dhcp
-cd /etc/iwd/main.conf
-[General]
-EnableNetworkConfiguration=true
+cd /etc/iwd/main.conf  #写入 [General]  EnableNetworkConfiguration=true
 #dhcpcd
 dhcpcd &
 
