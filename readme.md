@@ -1,11 +1,20 @@
+### macos
 ```shell
-##macos
 #安装homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle dump      #从当前包生成Brewfile
 brew bundle dump -f   #覆盖当前Brewfile
 brew bundle           #安装Brewfile里所有包
+```
+### windows
+``
+##wsl
+wsl.exe --shutdown
+wsl --unregister arch #注销该子系统，这才是完全卸载
+``
 
+### arch
+```
 ##iwd
 #wifi
 iwctl
@@ -20,9 +29,6 @@ EnableNetworkConfiguration=true
 #dhcpcd
 dhcpcd &
 
-##wsl
-wsl.exe --shutdown
-wsl --unregister arch #注销该子系统，这才是完全卸载
 
 #disk&wifiutils cfdisk iwd
 
