@@ -11,6 +11,11 @@ setopt HIST_IGNORE_DUPS  # 不记录重复的命令
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
+#mdfind
+v() {
+  vi "$(mdfind -name "$1" | head -n 1)"
+}
+
 # 增强补全功能
 autoload -Uz compinit && compinit 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # 大小写不敏感匹配 
