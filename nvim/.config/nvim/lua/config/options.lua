@@ -1,4 +1,4 @@
--- vim.opt.clipboard = 'unnamedplus' -- 剪贴板设置：使用系统剪贴板 (需要环境支持如 xclip/pbcopy)
+vim.opt.clipboard = 'unnamedplus' -- 剪贴板设置：使用系统剪贴板 (需要环境支持如 xclip/pbcopy)
 vim.g.mapleader = ' '          -- 将主引导键 (Leader key) 设置为空格键
 vim.g.VM_show_warnings = 0     -- 禁用 Visual Multi (多光标插件) 的警告信息
 vim.opt.laststatus = 0         -- 状态栏设置：0 为不显示状态栏
