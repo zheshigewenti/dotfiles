@@ -43,18 +43,16 @@ local plugins = {
     -- 其他工具
     'nvim-telescope/telescope.nvim',
     'windwp/nvim-autopairs',
-    'tpope/vim-commentary',
-    'tpope/vim-surround',
-    'mg979/vim-visual-multi',
+    -- 'tpope/vim-commentary',
+    -- 'tpope/vim-surround',
+    -- 'mg979/vim-visual-multi',
     'gcmt/wildfire.vim',
     'lambdalisue/suda.vim',
-    'uga-rosa/translate.nvim',
     'lewis6991/gitsigns.nvim',
     'kdheepak/lazygit.nvim',
     'dhruvasagar/vim-table-mode',
     'mzlogin/vim-markdown-toc',
     'vim-test/vim-test',
-    'preservim/vimux',
 }
 
 -- =============================================================================
@@ -126,9 +124,6 @@ require('telescope').setup()
 -- [第五步] 快捷键
 vim.keymap.set("n", "<a-g>", "<cmd>LazyGit<cr>")
 vim.keymap.set("c", "sw", "w suda://%")
-vim.keymap.set("n", "<leader>ts", "viw:Translate ZH<cr>")
 vim.keymap.set('n', '<Space><Space>', require('telescope.builtin').oldfiles, {})
 vim.keymap.set('n', '<leader>te', ':TestNearest<CR>')
 vim.keymap.set('n', '<leader>T', ':TestFile<CR>')
--- vim.cmd('colorscheme aurora')
-vim.cmd [[ let test#strategy = "vimux" ]]
