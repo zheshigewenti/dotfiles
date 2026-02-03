@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     -- 基础依赖
     'nvim-lua/plenary.nvim',
-    -- 'lunarvim/colorschemes',
 
     -- 语法解析
     { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
