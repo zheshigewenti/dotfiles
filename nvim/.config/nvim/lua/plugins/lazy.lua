@@ -33,7 +33,7 @@ local plugins = {
     'saadparwaiz1/cmp_luasnip',
 
     -- 代码片段
-    { 'L3MON4D3/LuaSnip', version = "v2.*", build = "make install_jsregexp" },
+    { 'L3MON4D3/LuaSnip', version = "v2.41", build = "make install_jsregexp" },
     'rafamadriz/friendly-snippets',
 
     -- 补全引擎
