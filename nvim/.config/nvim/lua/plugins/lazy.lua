@@ -45,11 +45,10 @@ local plugins = {
     -- 'tpope/vim-commentary',
     -- 'tpope/vim-surround',
     -- 'mg979/vim-visual-multi',
-    'gcmt/wildfire.vim',
     'lambdalisue/suda.vim',
     'lewis6991/gitsigns.nvim',
     'kdheepak/lazygit.nvim',
-    'dhruvasagar/vim-table-mode',
+    -- 'dhruvasagar/vim-table-mode',
     'mzlogin/vim-markdown-toc',
     'vim-test/vim-test',
 }
