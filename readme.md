@@ -9,7 +9,8 @@ brew bundle           #安装Brewfile里所有包
 ##git
 git clone https://github.com/zheshigewenti/dotfiles.git
 gh auth login #github-cli登录 注意保存github token
-git config --global user.name "vincent" #仓库内告知git用户为vincent
+git config --global user.name "vincent"
+git config --global user.email "dzn1534564656@gmail.com"
 
 ##colima
 colima start
