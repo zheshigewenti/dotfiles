@@ -11,6 +11,10 @@ git clone https://github.com/zheshigewenti/dotfiles.git
 gh auth login #github-cli登录 注意保存github token
 git config --global user.name "vincent" #仓库内告知git用户为vincent
 
+##colima
+colima start
+colima stop
+
 ##stow
 stow nvim #利用stow将nvim配置链接到.config文件夹下
 stow -D #取消相关软链接
