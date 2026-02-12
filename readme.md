@@ -31,6 +31,13 @@ tmux a    #重新连接最近会话
 tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
 
+##nmap
+nmap -sS -Pn -n --open -v 192.168.1.1
+-sS (SYN Scan)半开放扫描
+-Pn (No Ping)跳过存活检测
+--open 只显示开放的端口
+-v (Verbose)详细模式
+
 gc #neovim快速标注
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
