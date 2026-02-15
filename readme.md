@@ -44,6 +44,9 @@ nmap -sS -Pn -n -T2 --open --max-retries 1 -v 192.168.1.1
 -D 诱饵扫描混入虚假IP
 -v (Verbose)详细模式
 
+##aircrack-ng
+aircrack-ng -w ~/wifi/digits8.txt ~/wifi/hs/handshake.cap
+
 gc #neovim快速标注
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
