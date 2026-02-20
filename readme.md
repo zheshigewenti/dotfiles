@@ -37,12 +37,12 @@ nmap -sS -Pn -n -T2 --open --max-retries 1 -v 192.168.1.1
 -Pn (No Ping)跳过存活检测
 -n 不进行域名解析
 -T2 温和的速度
+-D 诱饵扫描混入虚假IP
+-v (Verbose)详细模式
 --open 只显示开放的端口
 --max-retries 1 即使丢包也不反复尝试
 --source-port 53 源端口伪装
 --spoof-mac 源设备伪装
--D 诱饵扫描混入虚假IP
--v (Verbose)详细模式
 
 ##aircrack-ng
 aircrack-ng -w ~/wifi/digits8.txt ~/wifi/hs/handshake.cap
