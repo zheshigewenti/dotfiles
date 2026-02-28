@@ -59,21 +59,22 @@ sudo airodump-ng wlp0s20f3mon     #全局扫描
 sudo aireplay-ng -0 5 -a [路由器MAC] -c [客户端MAC] wlp0s20f3mon   #-0 Deauth攻击 5 发送5组攻击包
 aircrack-ng -w ~/wifi/digits8.txt ~/wifi/hs/handshake.cap 
 
-#tshark
+##tshark
 sudo tshark -i wlp0s20f3 -w 1.pcap -c 50 #tshark抓包并保存到1.pcap
 tshark -r 1.pcap -T fields -e ip.dst | sort | uniq #过滤1.pcap中重复ip
 
-#rsync
+##rsync
 rsync -avzP digits8.txt vincent@192.168.10.1:~/wifi
 
-#sftp
+##sftp
 sftp user@nixos-ip
 put my_photo.jpg
 
-gc #neovim快速标注
+gc #vim快速标注
+:%/<old>/<new>/g #vim全局替换文本
+
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
-:%/<old>/<new>/g #vim中全局替换文本
 ```
 ### windows
 ```
