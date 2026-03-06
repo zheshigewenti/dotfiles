@@ -37,7 +37,7 @@ alias ls='ls --color'
 alias vi='nvim'
 alias lg='lazygit'
 alias f='lf'
-alias n='neofetch'
+alias f='fastfetch'
 alias reboot='sudo reboot'
 
 # --- 代理控制函数 ---
