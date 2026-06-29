@@ -43,12 +43,12 @@ alias reboot='sudo reboot'
 # --- 代理控制函数 ---
 # 使用函数封装，解决原本代理无法便捷关闭的问题
 proxy_on() {
-    export http_proxy=http://127.0.0.1:1082 
+    export http_proxy=http://127.0.0.1:7897 
     export https_proxy=$http_proxy 
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
     export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-    echo "代理已开启 (Port: 1082)"
+    echo "代理已开启 (Port: 7897)"
 }
 
 proxy_off() {
