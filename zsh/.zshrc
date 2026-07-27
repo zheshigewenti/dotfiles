@@ -11,6 +11,7 @@ setopt HIST_IGNORE_DUPS  # 不记录重复的命令
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
+
 #mdfind
 v() {
   vi "$(mdfind -name "$1" | head -n 1)"
@@ -43,7 +44,7 @@ alias reboot='sudo reboot'
 # --- 代理控制函数 ---
 # 使用函数封装，解决原本代理无法便捷关闭的问题
 proxy_on() {
-    export http_proxy=http://127.0.0.1:7897 
+    export http_proxy=http://127.0.0.1:7897
     export https_proxy=$http_proxy 
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
@@ -74,3 +75,7 @@ export HOMEBREW_INSTALL_FROM_API=1
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+precmd() {
+  osascript -e 'tell application "System Events" to select menu item "U.S." of menu 1 of menu bar item "Input" of menu bar 1 of process "SystemUIServer"' 2>/dev/null
+}
