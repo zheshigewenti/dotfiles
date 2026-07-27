@@ -75,7 +75,3 @@ export HOMEBREW_INSTALL_FROM_API=1
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-precmd() {
-  osascript -e 'tell application "System Events" to select menu item "U.S." of menu 1 of menu bar item "Input" of menu bar 1 of process "SystemUIServer"' 2>/dev/null
-}
