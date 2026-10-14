@@ -3,6 +3,8 @@ tap "laishulu/homebrew"
 brew "aircrack-ng"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# TIFF library and utilities
+brew "libtiff"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Like neofetch, but much faster because written mostly in C
