@@ -70,6 +70,9 @@ rsync -avzP digits8.txt vincent@192.168.10.1:~/wifi
 sftp user@nixos-ip
 put my_photo.jpg
 
+##libreoffice
+soffice --headless --convert-to pdf *
+
 ##bandit
 ssh bandit8@bandit.labs.overthewire.org -p 2220 
 find . -size 1033c
