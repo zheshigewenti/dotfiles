@@ -85,12 +85,8 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
 ##notes
-curl -L https://raw.githubusercontent.com/zheshigewenti/nixos/master/install.sh -o install.sh
-chmod +x install.sh
-./install.sh
 gc #vim快速标注
 :%/<old>/<new>/g #vim全局替换文本
-
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
 ```
@@ -146,7 +142,6 @@ noto-fonts-cjk-sans   # Google 中文黑体
 noto-fonts-cjk-serif  # Google 中文宋体
 noto-fonts-color-emoji 
 ```
-
 ### windows
 ```shell
 ##wsl
