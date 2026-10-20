@@ -94,13 +94,6 @@ gc #vim快速标注
 grep -rn <file> #递归搜索文本且显示行数
 sed -i 's/<old>/<new>/g' <file> #全局替换文本
 ```
-### windows
-```shell
-##wsl
-wsl.exe --shutdown
-wsl --unregister arch #注销该子系统，这才是完全卸载
-```
-
 ### arch
 ```shell
 ##iwd
@@ -153,3 +146,11 @@ noto-fonts-cjk-sans   # Google 中文黑体
 noto-fonts-cjk-serif  # Google 中文宋体
 noto-fonts-color-emoji 
 ```
+
+### windows
+```shell
+##wsl
+wsl.exe --shutdown
+wsl --unregister arch #注销该子系统，这才是完全卸载
+```
+
