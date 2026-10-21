@@ -25,7 +25,7 @@ autocmd('BufReadPost', {
 })
 
 -- 持久撤销 (使用 Lua 原生路径处理)
-local undo_path = vim.fn.expand("$HOME/.config/nvim/undo")
+local undo_path = vim.fn.stdpath("state") .. "/undo"  -- 放到仓库外，避免 undo 文件落在 dotfiles 里
 if vim.fn.isdirectory(undo_path) == 0 then vim.fn.mkdir(undo_path, "p") end
 vim.opt.undofile = true
 vim.opt.undodir = undo_path
