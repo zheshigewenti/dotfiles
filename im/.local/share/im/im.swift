@@ -33,7 +33,8 @@ func settle(_ ms: UInt32 = 150) { usleep(ms * 1000) }
 
 func switchTo(_ s: TISInputSource) -> Bool {
     guard TISSelectInputSource(s) == noErr else { return false }
-    settle()
+    // 切到中文输入法时多等一会（CJK 有竞态）；切英文很快，少等以缩短 shell 启动时间
+    settle(isChinese(s) ? 150 : 30)
     return true
 }
 

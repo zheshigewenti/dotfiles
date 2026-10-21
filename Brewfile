@@ -1,10 +1,7 @@
-tap "laishulu/homebrew"
 # Next-generation aircrack with lots of new features
 brew "aircrack-ng"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
-# TIFF library and utilities
-brew "libtiff"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Like neofetch, but much faster because written mostly in C
@@ -25,8 +22,8 @@ brew "lazydocker"
 brew "lazygit"
 # Terminal file manager
 brew "lf"
-# Media player based on MPlayer and mplayer2
-brew "mpv"
+# TIFF library and utilities
+brew "libtiff"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
@@ -35,12 +32,14 @@ brew "nginx"
 brew "nmap"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
-# Create, run, and share large language models (LLMs)
-brew "ollama"
-# Fast, disk space efficient package manager
-brew "pnpm"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# AI coding agent, built for the terminal
+brew "opencode"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Cross-platform library for audio I/O
+brew "portaudio"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
@@ -59,6 +58,7 @@ cask "basictex"
 cask "blender"
 # Continuation of Clash Verge - A Clash Meta GUI based on Tauri
 cask "clash-verge-rev"
+cask "font-sarasa-gothic"
 # Web browser
 cask "google-chrome"
 # Tool to prevent the system from going into sleep mode
@@ -77,3 +77,4 @@ cask "steam"
 cask "thor"
 # Configurable document editor that supports Markdown
 cask "typora"
+npm "opencode-ai"
