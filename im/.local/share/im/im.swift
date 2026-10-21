@@ -31,10 +31,10 @@ func currentID() -> String {
 // macOS 26+ CJK 切换有竞态，选完等一会再退出（macism 3.1.1 的修复点）
 func settle(_ ms: UInt32 = 150) { usleep(ms * 1000) }
 
-func switchTo(_ s: TISInputSource) -> Bool {
+func switchTo(_ s: TISInputSource, settleMs: UInt32) -> Bool {
     guard TISSelectInputSource(s) == noErr else { return false }
-    // 切到中文输入法时多等一会（CJK 有竞态）；切英文很快，少等以缩短 shell 启动时间
-    settle(isChinese(s) ? 150 : 30)
+    // 切到中文输入法时多等一会（CJK 有竞态）；切英文不等待，见下方 store=false 的说明
+    if settleMs > 0 { settle(settleMs) }
     return true
 }
 
@@ -43,6 +43,9 @@ func isChinese(_ s: TISInputSource) -> Bool {
     let n = name(s).lowercased()
     return n.contains("pinyin") || n.contains("拼音") || n.contains("chinese") || n.contains("简体") || n.contains("双拼")
 }
+
+// 只按 id 判断类型，不依赖再次遍历输入源列表。
+func kindOf(_ sid: String) -> String { isEnglish(sid) ? "en" : "zh" }
 
 func englishSource(_ list: [TISInputSource]) -> TISInputSource? {
     if let us = list.first(where: { id($0) == "com.apple.keylayout.US" }) { return us }
@@ -59,8 +62,36 @@ func chineseSource(_ list: [TISInputSource]) -> TISInputSource? {
 // MARK: - CLI
 
 let args = CommandLine.arguments.dropFirst().map { $0.lowercased() }
-let list = allSources().filter { isSelectable($0) && !id($0).isEmpty }
 let cmd = args.first ?? "get"
+
+// 快路径：这些命令不必枚举输入源列表，省一次 TISCreateInputSourceList。
+// im get / im get kind 会被 nvim 在每次 InsertEnter/InsertLeave 调用，必须极快。
+func fastPath() -> Bool {
+    if cmd == "get" && args.count <= 2 {
+        let cur = currentID()
+        print(args.dropFirst().first == "kind" ? kindOf(cur) : cur)
+        return true
+    }
+    if cmd == "en" || cmd == "english" || cmd == "us" {
+        let list = allSources().filter { isSelectable($0) && !id($0).isEmpty }
+        guard let en = englishSource(list) else { fail("no English input source enabled") }
+        if !switchTo(en, settleMs: 0) { fail("switch failed") }
+        print(currentID())
+        return true
+    }
+    return false
+}
+
+func fail(_ msg: String) -> Never {
+    FileHandle.standardError.write((msg + "\n").data(using: .utf8)!)
+    exit(1)
+}
+
+if fastPath() { exit(0) }
+
+let list = allSources().filter { isSelectable($0) && !id($0).isEmpty }
+let settleForZh: UInt32 = 150
+let settleForEn: UInt32 = 0  // 切英文必须尽快返回：nvim 里 esc 后紧接着的 h/l 依赖它完成
 
 func printList() {
     let cur = currentID()
@@ -70,14 +101,14 @@ func printList() {
     }
 }
 
-func fail(_ msg: String) -> Never {
-    FileHandle.standardError.write((msg + "\n").data(using: .utf8)!)
-    exit(1)
-}
-
 switch cmd {
 case "get", "":
-    print(currentID())
+    // 到达这里说明带了额外参数，走慢路径再判一次
+    if args.dropFirst().first == "kind" {
+        print(kindOf(currentID()))
+    } else {
+        print(currentID())
+    }
 
 case "list", "ls":
     printList()
@@ -85,21 +116,16 @@ case "list", "ls":
 case "toggle", "t":
     if isEnglish(currentID()) {
         guard let cn = chineseSource(list) else { fail("no Chinese input source enabled") }
-        if !switchTo(cn) { fail("switch failed") }
+        if !switchTo(cn, settleMs: settleForZh) { fail("switch failed") }
     } else {
         guard let en = englishSource(list) else { fail("no English input source enabled") }
-        if !switchTo(en) { fail("switch failed") }
+        if !switchTo(en, settleMs: settleForEn) { fail("switch failed") }
     }
-    print(currentID())
-
-case "en", "english", "us":
-    guard let en = englishSource(list) else { fail("no English input source enabled") }
-    if !switchTo(en) { fail("switch failed") }
     print(currentID())
 
 case "zh", "cn", "chinese", "pinyin":
     guard let cn = chineseSource(list) else { fail("no Chinese input source enabled") }
-    if !switchTo(cn) { fail("switch failed") }
+    if !switchTo(cn, settleMs: settleForZh) { fail("switch failed") }
     print(currentID())
 
 default:
@@ -108,7 +134,7 @@ default:
     if let s = list.first(where: { id($0).lowercased() == want })
         ?? list.first(where: { id($0).lowercased().hasPrefix(want) })
         ?? list.first(where: { name($0).lowercased().contains(want) }) {
-        if !switchTo(s) { fail("switch failed") }
+        if !switchTo(s, settleMs: isEnglish(id(s)) ? settleForEn : settleForZh) { fail("switch failed") }
         print(currentID())
     } else {
         fail("no input source matches: \(want)\nrun: im list")

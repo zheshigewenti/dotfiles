@@ -39,7 +39,6 @@ brew "opencode"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Cross-platform library for audio I/O
-brew "portaudio"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer

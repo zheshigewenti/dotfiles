@@ -39,34 +39,44 @@ autocmd('BufEnter', {
   end
 })
 
--- 2. 输入法自动切换 (极致压制原生终端重绘闪烁)
+-- 2. 输入法自动切换（中文 → 离开插入模式切英文，进入插入模式恢复）
 -----------------------------------------------------------
-local macism_group = augroup("MacismSwitch", { clear = true })
+-- 依赖 ~/.local/bin/im（见 dotfiles/im）。切英文必须尽可能快，
+-- 否则 esc 之后紧接着按的 h/l 会被中文输入法截走。
+local ime_group = augroup("ImeSwitch", { clear = true })
 local EN_IME = "com.apple.keylayout.US"
 vim.g.last_insert_ime = EN_IME
+
+-- 异步执行，不阻塞编辑器主线程
+local function im_async(...)
+  if vim.fn.executable("im") == 1 then
+    vim.fn.jobstart({ "im", ... }, { detach = true, stdout_buffered = false })
+    return true
+  end
+  return false
+end
+
 autocmd("InsertLeave", {
-  group = macism_group,
+  group = ime_group,
   pattern = "*",
   callback = function()
-    if vim.fn.executable("macism") == 1 then
-      local current_ime = vim.fn.system("macism"):gsub("%s+", "")
-      if current_ime ~= "" and current_ime ~= EN_IME then
-        vim.g.last_insert_ime = current_ime
-        vim.fn.jobstart({"macism", EN_IME}, { detach = true })
-      else
-        vim.g.last_insert_ime = EN_IME
-      end
+    -- 一次调用即可：拿完整 id 后本地判断是否为英文键盘布局
+    local current = vim.fn.system({ "im", "get" }):gsub("%s+", "")
+    if current == "" or current == EN_IME then
+      return
     end
+    -- 非英文则记住它，回到插入模式时恢复
+    vim.g.last_insert_ime = current
+    im_async("en")
   end,
 })
+
 autocmd("InsertEnter", {
-  group = macism_group,
+  group = ime_group,
   pattern = "*",
   callback = function()
-    if vim.fn.executable("macism") == 1 then
-      if vim.g.last_insert_ime ~= EN_IME then
-        vim.fn.jobstart({"macism", vim.g.last_insert_ime}, { detach = true })
-      end
+    if vim.g.last_insert_ime ~= EN_IME then
+      im_async(vim.g.last_insert_ime)
     end
   end,
 })
