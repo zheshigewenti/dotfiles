@@ -18,6 +18,7 @@ colima stop
 
 ##stow
 stow nvim #利用stow将nvim配置链接到.config文件夹下
+stow im    #输入法切换工具，随后 make -C ~/.local/share/im install 编译到 ~/.local/bin/im
 stow -D #取消相关软链接
 
 ##tmux

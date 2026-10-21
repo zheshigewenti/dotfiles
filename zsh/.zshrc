@@ -11,7 +11,6 @@ setopt HIST_IGNORE_DUPS  # 不记录重复的命令
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
-
 #mdfind
 v() {
   vi "$(mdfind -name "$1" | head -n 1)"
@@ -75,3 +74,17 @@ export HOMEBREW_INSTALL_FROM_API=1
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode: 不带参数时自动续上一次会话
+opencode() {
+  if [ $# -eq 0 ]; then
+    command opencode --continue
+  else
+    command opencode "$@"
+  fi
+}
+
+# 新终端默认切到英文输入法（U.S.）
+if [[ -o interactive ]] && [ -x "$HOME/.local/bin/im" ]; then
+  "$HOME/.local/bin/im" en >/dev/null 2>&1
+fi
