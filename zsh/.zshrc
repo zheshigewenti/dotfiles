@@ -62,9 +62,12 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_INSTALL_FROM_API=1
 
 # --- bun ---
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# bun 本体由 Homebrew 安装；~/.bun/bin 只用于 bun 全局包的可执行文件，
+# 放在 PATH 末尾，避免旧的 bun 二进制遮住 /opt/homebrew/bin/bun。
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+typeset -U path
+path+=("$BUN_INSTALL/bin")
+export PATH
 
 # --- opencode: 不带参数时自动续上一次会话 ---
 opencode() {

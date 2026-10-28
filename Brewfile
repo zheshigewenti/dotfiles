@@ -1,5 +1,7 @@
 # Next-generation aircrack with lots of new features
 brew "aircrack-ng"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
 # Pack, ship and run any application as a lightweight container
