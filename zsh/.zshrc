@@ -1,6 +1,3 @@
-# --- 基础设置 ---
-bindkey -v  # 开启 Vi 模式
-
 # --- 历史记录优化 ---
 HISTSIZE=10000
 SAVEHIST=10000
@@ -54,26 +51,6 @@ alias lg='lazygit'
 alias f='fastfetch'     # 原来被 lf 占用，现在归 fastfetch
 alias reboot='sudo reboot'
 
-# --- 代理控制 ---
-proxy_on() {
-    export http_proxy=http://127.0.0.1:7897
-    export https_proxy=$http_proxy
-    export ftp_proxy=$http_proxy
-    export rsync_proxy=$http_proxy
-    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-    echo "代理已开启 (Port: 7897)"
-}
-
-proxy_off() {
-    unset http_proxy https_proxy ftp_proxy rsync_proxy no_proxy
-    echo "代理已关闭"
-}
-
-# 只有 Clash 真的在监听时才自动开代理，否则 curl/git/brew 会卡在死代理上
-if nc -z -G 1 127.0.0.1 7897 >/dev/null 2>&1; then
-    proxy_on >/dev/null
-fi
-
 # --- 插件与路径 ---
 source ~/.zsh/z/z.sh
 export PATH="$HOME/.local/bin:$PATH"
@@ -89,13 +66,13 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # --- opencode: 不带参数时自动续上一次会话 ---
-opencode() {
-  if [ $# -eq 0 ]; then
-    command opencode --continue
-  else
-    command opencode "$@"
-  fi
-}
+# opencode() {
+#   if [ $# -eq 0 ]; then
+#     command opencode --continue
+#   else
+#     command opencode "$@"
+#   fi
+# }
 
 # --- 新终端默认切到英文输入法 ---
 if [[ -o interactive ]] && [ -x "$HOME/.local/bin/im" ]; then
