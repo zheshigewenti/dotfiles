@@ -15,7 +15,7 @@ vim.opt.autoread = true        -- 当文件在外部被修改时自动读取
 -- 界面反馈
 vim.opt.showcmd = true         -- 在状态栏显示正在输入的命令
 vim.opt.wildmenu = true        -- 命令行补全时显示增强版菜单
-vim.opt.autochdir = true       -- 自动将工作目录切换为当前编辑文件所在的目录
+vim.opt.autochdir = false      -- 不自动切换 cwd，避免 Telescope/终端/LSP 根目录跟着当前文件乱跑
 vim.opt.hlsearch = true        -- 高亮显示搜索结果
 vim.opt.showmode = true        -- 显示当前所处的模式 (如 -- INSERT --)
 vim.opt.ttyfast = true         -- 指示终端连接较快，优化平滑绘制
