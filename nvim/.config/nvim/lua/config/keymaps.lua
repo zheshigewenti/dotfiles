@@ -13,4 +13,4 @@ vim.keymap.set('i', '<c-a>', '<esc>A')
 
 
 vim.keymap.set('n', '<leader><CR>', ':nohlsearch<CR>')
-vim.keymap.set('n', '<a-;>', ':Term<CR>')
+vim.keymap.set('n', '<a-;>', ':terminal<CR>')

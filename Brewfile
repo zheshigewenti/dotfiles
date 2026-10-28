@@ -16,6 +16,8 @@ brew "gh"
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Go language server
+brew "gopls"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
@@ -76,4 +78,3 @@ cask "steam"
 cask "thor"
 # Configurable document editor that supports Markdown
 cask "typora"
-npm "opencode-ai"

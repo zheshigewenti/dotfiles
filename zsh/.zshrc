@@ -2,7 +2,6 @@
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_DUPS        # 不记录重复的命令
 setopt SHARE_HISTORY           # 多个标签页共享历史，不再互相覆盖
 setopt APPEND_HISTORY          # 立即追加写入
 setopt HIST_IGNORE_ALL_DUPS    # 全局去重，只保留最近一次
@@ -13,6 +12,7 @@ setopt HIST_REDUCE_BLANKS      # 去掉命令里多余的空格
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # 大小写不敏感匹配
 zstyle ':completion:*' menu select                       # 开启补全菜单选择
 
+zmodload zsh/complist   # menu select 依赖该模块
 autoload -Uz compinit
 # 每天重建一次补全缓存，其余时间用 -C 跳过安全检查（省 ~20ms/次）
 _zstamp="${ZDOTDIR:-$HOME}/.zcompdump.stamp"
@@ -38,7 +38,7 @@ function parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
 }
 setopt PROMPT_SUBST
-export PROMPT='%F{grey}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{normal}%#%f '
+export PROMPT='%F{8}%n%f %F{cyan}%~%f %F{green}$(parse_git_branch)%f %F{default}%#%f '
 
 # --- 环境变量与别名 ---
 export EDITOR=nvim
@@ -52,7 +52,9 @@ alias f='fastfetch'     # 原来被 lf 占用，现在归 fastfetch
 alias reboot='sudo reboot'
 
 # --- 插件与路径 ---
-export PATH="$HOME/.local/bin:$PATH"
+typeset -U path
+path=("$HOME/.local/bin" $path)
+export PATH
 
 # homebrew 国内源
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"

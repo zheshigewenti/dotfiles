@@ -6,7 +6,7 @@ vim.opt.backspace = '2'        -- 退格键行为：'2' 允许在插入模式下
 -- vim.opt.virtualedit ='block'-- (注释状态) 允许光标在可视块模式下移动到没有字符的地方
 -- vim.opt.scrolloff = 4       -- (注释状态) 垂直滚动时光标距离顶部/底部的最小行数
 vim.opt.textwidth = 0          -- 文本折行宽度：0 表示不自动折行
-vim.opt.ttimeoutlen = 0        -- 超时等待时间：设置为 0 表示立即响应键位组合 (常用于消除 Esc 键延迟)
+vim.opt.ttimeoutlen = 10       -- 超时等待时间：保留一点余量，避免 Alt/终端转义序列被截断
 
 -- 自动保存/读取
 vim.opt.autowrite = true       -- 切换文件或退出时自动保存
@@ -23,6 +23,8 @@ vim.opt.ttyfast = true         -- 指示终端连接较快，优化平滑绘制
 vim.opt.visualbell = true      -- 使用可视响铃 (闪烁) 代替声音报警
 vim.opt.cursorline = false     -- 不高亮显示当前行
 vim.opt.autoindent = false     -- 禁用自动缩进 (通常由插件或 filetype 更精细控制)
+vim.opt.signcolumn = 'yes'     -- 固定 sign 列，避免 gitsigns/diagnostics 出现时文本左右跳动
+vim.opt.updatetime = 250       -- gitsigns/diagnostics 更快刷新
 
 -- 窗口分割方向
 vim.opt.splitright = true      -- 新水平分割窗口在右侧出现

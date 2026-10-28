@@ -1,25 +1,41 @@
 ### macos
 ```shell
-#安装homebrew
+## 快速安装
+# 安装 Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle dump      #从当前包生成Brewfile
-brew bundle dump -f   #覆盖当前Brewfile
-brew bundle           #安装Brewfile里所有包
 
-##git
-git clone https://github.com/zheshigewenti/dotfiles.git
-gh auth login #github-cli登录 注意保存github token
-git config --global user.name "vincent"
-git config --global user.email "dzn1534564656@gmail.com"
+# 克隆（zsh-autosuggestions 是子模块）
+git clone --recurse-submodules https://github.com/zheshigewenti/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+brew bundle --file=Brewfile   # 安装 Brewfile 里的包
+# 已有同名配置的话先备份；stow 默认不会覆盖
+make link                     # stow zsh/git/nvim/tmux/lf/mpv/im
+make im                       # 编译 im 到 ~/.local/bin（需要 Xcode Command Line Tools）
+exec zsh
+
+# 可选：bun（zshrc 会加载 ~/.bun/_bun）
+curl -fsSL https://bun.sh/install | bash
+# 可选：mpv（仓库里有配置，但 Brewfile 未包含）
+brew install mpv
+
+# 已经克隆过的话，拉取子模块
+git submodule update --init --recursive
+
+## git
+gh auth login                  # GitHub CLI 登录
+gh auth setup-git              # 让 git 使用 gh 的凭据
+
+## 日常操作
+brew bundle dump -f            # 从当前环境覆盖 Brewfile
+brew bundle check --file=Brewfile
+make link                      # 建立软链接
+make unlink                    # 取消软链接
+make bootstrap                 # brew bundle + link + im
 
 ##colima
 colima start
 colima stop
-
-##stow
-stow nvim #利用stow将nvim配置链接到.config文件夹下
-stow im    #输入法切换工具，随后 make -C ~/.local/share/im install 编译到 ~/.local/bin/im
-stow -D #取消相关软链接
 
 ##tmux
 prefix键设置为C-a
