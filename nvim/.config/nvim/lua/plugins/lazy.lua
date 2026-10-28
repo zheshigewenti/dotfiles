@@ -2,7 +2,7 @@
 -- 1. Lazy.nvim 引导逻辑
 -- =============================================================================
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone", "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git", "--branch=stable",
@@ -19,7 +19,16 @@ local plugins = {
     'nvim-lua/plenary.nvim',
 
     -- 语法解析
-    { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ":TSUpdate",
+        config = function()
+            require('nvim-treesitter').install({
+                'lua', 'vim', 'vimdoc', 'c', 'cpp', 'go',
+                'bash', 'json', 'yaml', 'markdown', 'markdown_inline',
+            })
+        end,
+    },
 
     -- LSP 管理后端 (必须包含这些)
     "williamboman/mason.nvim",
@@ -65,9 +74,8 @@ require("lazy").setup(plugins)
 -- [第一步] 初始化代码片段 (Snippets)
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_lua").load({ 
-    paths = { vim.fn.expand("~/.config/nvim/snip/") } 
-})
+-- 如需 Lua 片段，先创建 ~/.config/nvim/snip/，再取消下面这行
+-- require("luasnip.loaders.from_lua").load({ paths = { vim.fn.expand("~/.config/nvim/snip/") } })
 
 -- [第二步] 初始化补全引擎 (CMP)
 local cmp = require('cmp')
@@ -93,26 +101,30 @@ cmp.setup({
     })
 })
 
--- [第三步] 初始化 LSP (修复弃用警告的关键修改)
+-- [第三步] 初始化 LSP
 require("mason").setup()
 
--- 获取补全能力 (Capabilities)
+-- 把 cmp 的能力应用到所有 LSP server（Neovim 0.11+）
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
 
--- 使用 handlers 自动配置所有服务器，不再手动 require('lspconfig') 循环
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "clangd" }, -- 确保安装这些
-    handlers = {
-        -- 默认处理器：对所有安装的服务器执行此逻辑
-        function(server_name)
-            require("lspconfig")[server_name].setup({
-                capabilities = capabilities,
-            })
-        end,
-        -- 如果需要针对特定语言做特殊配置，可以单独写，例如：
-        -- ["lua_ls"] = function() ... end
-    }
+-- lua_ls 认识 vim 全局，避免误报
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = { globals = { "vim" } },
+            workspace = { checkThirdParty = false },
+        },
+    },
 })
+
+-- mason-lspconfig 2.x 会自动 enable 已安装的 server
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls", "clangd" },
+})
+
+-- gopls 由 Homebrew 安装（Mason 的 GitHub API 在当前网络下不稳定）
+vim.lsp.enable({ "gopls" })
 
 -- [第四步] 其他插件初始化
 require('gitsigns').setup()
