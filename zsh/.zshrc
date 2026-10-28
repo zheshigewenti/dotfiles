@@ -52,7 +52,6 @@ alias f='fastfetch'     # 原来被 lf 占用，现在归 fastfetch
 alias reboot='sudo reboot'
 
 # --- 插件与路径 ---
-source ~/.zsh/z/z.sh
 export PATH="$HOME/.local/bin:$PATH"
 
 # homebrew 国内源
@@ -66,13 +65,13 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # --- opencode: 不带参数时自动续上一次会话 ---
-# opencode() {
-#   if [ $# -eq 0 ]; then
-#     command opencode --continue
-#   else
-#     command opencode "$@"
-#   fi
-# }
+opencode() {
+  if [ $# -eq 0 ]; then
+    command opencode --continue
+  else
+    command opencode "$@"
+  fi
+}
 
 # --- 新终端默认切到英文输入法 ---
 if [[ -o interactive ]] && [ -x "$HOME/.local/bin/im" ]; then
