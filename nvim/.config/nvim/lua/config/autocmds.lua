@@ -39,6 +39,17 @@ autocmd('BufEnter', {
   end
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.cmd("startinsert")
+    -- 核心：按 Esc 后先切回 Normal 模式，然后强制删除当前终端 Buffer，完美退回原文件
+    vim.keymap.set("t", "<Esc>", [[<C-\><C-n><cmd>bd!<CR>]], { buffer = true, desc = "Close terminal buffer" })
+  end,
+})
+
 -- 2. 输入法自动切换（中文 → 离开插入模式切英文，进入插入模式恢复）
 -----------------------------------------------------------
 -- 依赖 ~/.local/bin/im（见 dotfiles/im）。切英文必须尽可能快，
