@@ -1,24 +1,14 @@
 ### macos
 ```shell
 ## 快速安装
-# 安装 Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# 克隆（zsh-autosuggestions 是子模块）
 git clone --recurse-submodules https://github.com/zheshigewenti/dotfiles.git ~/dotfiles
+git submodule update --init --recursive
 cd ~/dotfiles
-
 brew bundle --file=Brewfile   # 安装 Brewfile 里的包
-# 已有同名配置的话先备份；stow 默认不会覆盖
 make link                     # stow zsh/git/nvim/tmux/lf/mpv/im
 make im                       # 编译 im 到 ~/.local/bin（需要 Xcode Command Line Tools）
 exec zsh
-
-# mpv 桌面版会直接读取 ~/.config/mpv，不需要再装 CLI
-# 需要命令行版时再执行：brew install mpv
-
-# 已经克隆过的话，拉取子模块
-git submodule update --init --recursive
 
 ## git
 gh auth login                  # GitHub CLI 登录
