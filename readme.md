@@ -3,7 +3,6 @@
 ## 快速安装
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 git clone --recurse-submodules https://github.com/zheshigewenti/dotfiles.git ~/dotfiles
-git submodule update --init --recursive
 cd ~/dotfiles
 brew bundle --file=Brewfile   # 安装 Brewfile 里的包
 make link                     # stow zsh/git/nvim/tmux/lf/mpv/im
