@@ -47,10 +47,6 @@ tmux a -t #重新连接托管会话
 tmux new -s #创建新会话会话
 
 ##nvim 键位
-# 插入模式不占用 C-a，C-a 留给 tmux prefix
-# Alt 键位依赖终端把 Option 当 Meta：
-#   Terminal.app：设置 > 描述文件 > 键盘 > 使用 Option 作为 Meta 键
-#   iTerm2：Profiles > Keys > Left Option key 设为 Esc+
 # 没有 Alt 时可用 Space + h/j/k/l 移动窗口，Space + s/v 分屏，Space + t 打开终端
 
 ##netcat
