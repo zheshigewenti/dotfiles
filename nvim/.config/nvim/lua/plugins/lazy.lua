@@ -132,7 +132,7 @@ require("nvim-autopairs").setup()
 require('telescope').setup()
 
 -- [第五步] 快捷键
-vim.keymap.set("n", "<a-g>", "<cmd>LazyGit<cr>")
+vim.keymap.set("n", "<leader>g", "<cmd>LazyGit<cr>")
 vim.keymap.set("c", "sw", "w suda://%")
 vim.keymap.set('n', '<Space><Space>', require('telescope.builtin').oldfiles, {})
 vim.keymap.set('n', '<leader>te', ':TestNearest<CR>')
