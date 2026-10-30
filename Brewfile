@@ -18,7 +18,7 @@ brew "gh"
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Go language server
+# Language server for the Go language
 brew "gopls"
 # Lazier way to manage everything docker
 brew "lazydocker"
@@ -42,7 +42,6 @@ brew "ripgrep"
 brew "opencode"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Cross-platform library for audio I/O
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
@@ -61,6 +60,7 @@ cask "basictex"
 cask "blender"
 # Continuation of Clash Verge - A Clash Meta GUI based on Tauri
 cask "clash-verge-rev"
+cask "font-jetbrains-mono"
 cask "font-sarasa-gothic"
 # Web browser
 cask "google-chrome"
