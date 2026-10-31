@@ -58,8 +58,8 @@ local plugins = {
     'lewis6991/gitsigns.nvim',
     'kdheepak/lazygit.nvim',
     -- 'dhruvasagar/vim-table-mode',
-    'mzlogin/vim-markdown-toc',
-    'vim-test/vim-test',
+    -- 'mzlogin/vim-markdown-toc',
+    -- 'vim-test/vim-test',
 }
 
 -- =============================================================================
